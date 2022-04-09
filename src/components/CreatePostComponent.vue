@@ -9,18 +9,26 @@
       />
       <form action="post_post">
         <div class="input-cam">
-          <input
-              type="text"
-              style="width: 350px"
-              placeholder="Enter your content"
-          />
-          <a @click="taiAnh">
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
-                alt="HTML tutorial"
-                class="inside-input-cam"
+          <div class="input-top">
+            <input
+                type="text"
+                style="width: 350px"
+                placeholder="Enter your content"
             />
-          </a>
+            <a @click="taiAnh">
+              <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
+                  alt="HTML tutorial"
+                  class="inside-input-cam"
+              />
+            </a>
+          </div>
+          <div class="img-content" style="display: flex">
+            <img
+                src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/11/28/tiem-vaccine-tre-em-1638069697701984230006.jpeg"
+                alt="img-content"
+            />
+          </div>
         </div>
       </form>
     </div>
@@ -50,20 +58,11 @@ export default {
 </script>
 
 <style scoped>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 .user-icon {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   margin-right: 12px;
-  margin-left: 5px;
 }
 .flex-container {
   display: flex;
@@ -74,7 +73,7 @@ export default {
   background-color: azure;
   padding: 5px;
   flex-wrap: wrap;
-  width: 450px;
+  width: 480px;
   border-color: grey;
 }
 .flex-container-row {
@@ -106,16 +105,26 @@ input {
 }
 .input-cam {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-content: space-around;
   background: white;
   box-shadow: 0px 4px lightgrey;
   border-radius: 10px;
 }
+.input-top {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  width: auto;
+}
 .inside-input-cam {
   height: 20px;
   width: 20px;
   margin-right: 10px;
-  margin-top: 7px ;
+  margin-top: 7px;
+  float: right;
+}
+.img-content > img {
+  max-width: 380px;
 }
 </style>
