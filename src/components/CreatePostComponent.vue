@@ -66,14 +66,14 @@ export default {
 }
 .flex-container {
   position: relative;
-  top: 70px;
+  top: 100px;
   width:800px; margin:0 auto;
   display: flex;
   flex-direction: column;
   align-content: space-around;
   border: 2px solid;
   border-radius: 12px;
-  background-color: azure;
+  background-color: ghostwhite;
   padding: 5px;
   flex-wrap: wrap;
   width: 480px;
