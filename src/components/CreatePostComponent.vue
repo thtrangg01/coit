@@ -67,7 +67,7 @@ export default {
 .flex-container {
   position: relative;
   top: 100px;
-  width:800px; margin:0 auto;
+  margin:0 auto;
   display: flex;
   flex-direction: column;
   align-content: space-around;
