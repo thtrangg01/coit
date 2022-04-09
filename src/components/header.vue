@@ -20,12 +20,13 @@
     <div class="navbar-center">
       <span>
         <b-form-input
-          style="width: 500px"
+          class="mr-4"
+          style="width: 650px"
           v-model="text"
           placeholder="Search"
         ></b-form-input>
       </span>
-      <button>
+      <button class="btn-search">
         <svg
           height="30px"
           xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +41,7 @@
     </div>
 
     <div class="navbar-left">
-      <button>
+      <button class="btn-announce">
         <svg
           height="30px"
           xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +54,7 @@
         </svg>
       </button>
 
-      <button>
+      <button class="btn-login">
         <svg
           height="30px"
           xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +80,7 @@ export default {
 .navbar {
   position: fixed;
   margin: 0 auto;
-  height: 60px;
+  height: 70px;
   width: 100%;
   background-color: #9cb6d9;
 }
@@ -96,13 +97,30 @@ export default {
   font-size: large;
 }
 
+.btn-search {
+  padding-left: 5px;
+}
+
+.btn-announce {
+  padding-right: 30px;
+}
+
+.btn-login {
+  padding: 0 10px;
+}
+
 .navbar-right {
   display: flex;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 .navbar-left {
   display: flex;
+  margin-right: 20px;
+  margin-bottom: 5px;
 }
 .navbar-center {
   display: flex;
+  margin-bottom: 5px;
 }
 </style>
