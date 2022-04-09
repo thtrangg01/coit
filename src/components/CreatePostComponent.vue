@@ -5,7 +5,6 @@
           class="user-icon"
           src="https://nguoinoitieng.tv/images/nnt/102/1/bgom.jpg"
           alt="user-icon"
-          style="width: 30px; height: 30px"
           @click="truyCapUser"
       />
       <form action="post_post">
@@ -60,6 +59,8 @@ export default {
   margin-top: 60px;
 }
 .user-icon {
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   margin-right: 12px;
   margin-left: 5px;
@@ -115,5 +116,6 @@ input {
   height: 20px;
   width: 20px;
   margin-right: 10px;
+  margin-top: 7px ;
 }
 </style>
