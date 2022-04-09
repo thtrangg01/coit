@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: "App",
+  name: "CreatePostComponent",
   methods: {
     truyCapUser() {
       console.log("Truy cap User");
