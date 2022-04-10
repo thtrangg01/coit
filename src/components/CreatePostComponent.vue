@@ -7,14 +7,11 @@
           alt="user-icon"
           @click="truyCapUser"
       />
+
       <form action="post_post">
         <div class="input-cam">
           <div class="input-top">
-            <input
-                type="text"
-                style="width: 350px"
-                placeholder="Enter your content"
-            />
+            <span class="text-input-span" contenteditable="true"> </span>
             <a @click="taiAnh">
               <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
@@ -23,7 +20,7 @@
               />
             </a>
           </div>
-          <div class="img-content" style="display: none">
+          <div class="img-content" style="display: flex">
             <img
                 src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/11/28/tiem-vaccine-tre-em-1638069697701984230006.jpeg"
                 alt="img-content"
@@ -42,7 +39,7 @@
 
 <script>
 export default {
-  name: "CreatePostComponent",
+  name: "App",
   methods: {
     truyCapUser() {
       console.log("Truy cap User");
@@ -59,21 +56,21 @@ export default {
 
 <style scoped>
 .user-icon {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   margin-right: 12px;
 }
 .flex-container {
   position: relative;
-  top: 100px;
-  margin:0 auto;
+  top:100px;
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
   align-content: space-around;
   border: 2px solid;
   border-radius: 12px;
-  background-color: ghostwhite;
+  background-color: whitesmoke;
   padding: 5px;
   flex-wrap: wrap;
   width: 480px;
@@ -101,10 +98,14 @@ button:active {
   margin-bottom: 10px;
   margin-right: 10px;
 }
-input {
+.text-input-span {
   background: transparent;
   border: transparent;
   margin: 5px;
+  width: 350px;
+  min-height: 20px;
+  display: inline-block;
+  width: 350px;
 }
 .input-cam {
   display: flex;
