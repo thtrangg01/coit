@@ -11,7 +11,7 @@
       <form action="post_post">
         <div class="input-cam">
           <div class="input-top">
-            <span class="text-input-span" contenteditable="true" ;> </span>
+            <span class="text-input-span" contenteditable="true"> </span>
             <a @click="taiAnh">
               <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
@@ -62,12 +62,15 @@ export default {
   margin-right: 12px;
 }
 .flex-container {
+  position: relative;
+  top:100px;
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
   align-content: space-around;
   border: 2px solid;
   border-radius: 12px;
-  background-color: azure;
+  background-color: whitesmoke;
   padding: 5px;
   flex-wrap: wrap;
   width: 480px;
