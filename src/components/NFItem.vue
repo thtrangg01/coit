@@ -1,11 +1,12 @@
 <template>
-  <div class="text-center">
+  <div class="text-center " >
     <div class="inline-block">
       <div
-        class="text-center w-auto h-auto border-r border-t border-l border-b border-black border-solid rounded-3xl"
+        class="text-center h-auto border-r border-t border-l border-b border-black border-solid rounded-3xl"
+        style="width: 480px"
       >
         <div class="inline-block">
-          <div class="h-12 w-auto ml-2">
+          <div class="h-12 ml-3 mt-2" style="width: 480px">
             <span
               ><img
                 src="https://i.pinimg.com/originals/8e/1d/78/8e1d788660189c2c9c02d282394ef8a9.png"
@@ -13,26 +14,28 @@
                 class="mt-1 w-10 h-10 rounded-3xl border-2 border-solid border-black float-left"
             /></span>
             <span class="text-left">
-              <span class="mr-44 text-lg ml-2">Trịnh Khánh Huyền</span>
-              <p class="text-sm ml-14">09-04-2022</p>
+              <span class="text-lg ml-2 float-left mt-2 font-semibold">Trịnh Khánh Huyền</span
+              ><br/>         
+              
             </span>
           </div>
 
-          <div class="text-left flex-wrap w-96 ml-2 mt-2">
+          <div class="text-left flex-wrap ml-3" style="width: 450px;">
             Bộ Y tế: Bắt buộc 100% cơ sở tiêm vaccine phòng COVID-19 cho trẻ từ
             5 – dưới 12 tuổi phải ký số
           </div>
 
-          <div class="inline-block ml-0">
+          <div class="inline-block mr-14">
             <img
               src="https://quoctesannhihaiphong.vn/wp-content/uploads/2021/02/z2316959685752_6779c1a5c7b75186ec2fa20e898d7e75-scaled.jpg"
               alt=""
-              class="w-96 cover mt-3"
+              class="mt-3 mr-2"
+              style="width: 460px"
             />
           </div>
 
           <div>
-            <div class="ml-2">
+            <div class="ml-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
@@ -69,8 +72,8 @@
               </svg>
             </div>
           </div>
-          <hr class="inline-block w-96" />
-          <div class="ml-2 mr-2">
+          <hr class="inline-block mr-16" style="width: 480px;" />
+          <div class="ml-2 mr-2 mb-3 h-6">
             <div>
               <img
                 src="https://i.pinimg.com/originals/8e/1d/78/8e1d788660189c2c9c02d282394ef8a9.png"
@@ -79,10 +82,10 @@
               />
             </div>
             <span class="text-left float-left">
-              <span class="mr-44 text-sm ml-3">Thêm bình luận...</span>
+              <input placeholder="Thêm bình luận..." style="width: 300px" class="mr-20 text-sm ml-3 ">
             </span>
 
-            <p class="text-sm pt-1">Đăng</p>
+            <span class="text-sm float-left">Đăng</span>
           </div>
         </div>
       </div>
