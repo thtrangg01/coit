@@ -56,8 +56,8 @@ export default {
 
 <style scoped>
 .user-icon {
-  width: 30px;
-  height: 30px;
+  width: 37px;
+  height: 37px;
   border-radius: 50%;
   margin-right: 12px;
 }
@@ -75,6 +75,7 @@ export default {
   flex-wrap: wrap;
   width: 480px;
   border-color: grey;
+  z-index: -10;
 }
 .flex-container-row {
   display: flex;
