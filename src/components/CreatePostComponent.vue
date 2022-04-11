@@ -116,6 +116,12 @@ button:active {
   min-height: 20px;
   display: inline-block;
   width: 350px;
+  display: inline-block;
+}
+.text-input-span:empty::before{
+  content: "Enter your content...";
+  color: grey;
+  display: inline-block;
 }
 .input-cam {
   display: flex;
