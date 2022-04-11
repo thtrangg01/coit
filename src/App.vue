@@ -15,7 +15,7 @@ import h from "./components/header.vue";
 import NFItem from "./components/NFItem.vue";
 export default {
   name: "App",
-  components: { h, NFItem },
+  components: { h, NFItem},
 };
 </script>
 <style></style>
