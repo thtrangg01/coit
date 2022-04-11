@@ -15,8 +15,19 @@ const db = firebase.database().ref("feeds");
     user_image: "",
     created_at: Date.now(),
     updated_at: Date.now(),
-    comments: [],
-    likes: []
+    comments: [
+      {
+        comment_id: uuid(),
+        user_id: "",
+        user_name: "",
+        user_image: "", 
+        content: "",
+        created_at: Date.now(),
+        updated_at: Date.now()
+      },
+      ...
+    ],
+    likes: [uuid_1, uuid_2, ...],
   }
 */
 
