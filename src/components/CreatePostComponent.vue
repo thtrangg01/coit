@@ -8,10 +8,11 @@
           @click="truyCapUser"
       />
 
-      <form action="post_post">
+      <form>
         <div class="input-cam">
           <div class="input-top">
-            <span class="text-input-span" contenteditable="true"> </span>
+            <span class="text-input-span" role="textbox" contenteditable="true" @input="onDivInput($event)">
+            </span>
             <a @click="taiAnh">
               <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
@@ -41,6 +42,9 @@
 export default {
   name: "CreatePostComponent",
   methods: {
+    onDivInput(e) {
+      this.content = e.target.innerHTML;
+    },
     truyCapUser() {
       console.log("Truy cap User");
     },
@@ -48,9 +52,14 @@ export default {
       console.log("Tai anh len");
     },
     dangBai() {
-      console.log("Dang bai");
+      console.log("Dang bai " + this.content);
     },
   },
+  data(){
+    return {
+      content
+    };
+  }
 };
 </script>
 
