@@ -14,7 +14,9 @@ const db = firebase.database().ref("feeds");
     user_name: "",
     user_image: "",
     created_at: Date.now(),
-    updated_at: Date.now()
+    updated_at: Date.now(),
+    comments: [],
+    likes: []
   }
 */
 
@@ -53,6 +55,23 @@ class DatabaseService {
   getNewestByPageAndSize(page, size=10) {
     const startAt = page * size;
     return db.orderByChild("created_at").limitToLast(size).startAt(startAt).once("value");
+  }
+
+  insertComment(id, comment) {
+    return db.child(id).child("comments").push(comment);
+  }
+
+  removeComment(id, comment_id) {
+    return db.child(id).child("comments").child(comment_id).remove();
+  }
+
+  changeComment(id, comment_id, comment) {
+    return db.child(id).child("comments").child(comment_id).update(comment);
+  }
+
+  changeLike(id, user_id) {
+    const liked = db.child(id).child("likes").child(user_id).once("value");
+    return liked? db.child(id).child("likes").child(user_id).remove() : db.child(id).child("likes").push(user_id);
   }
 }
 
