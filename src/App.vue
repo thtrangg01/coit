@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Statistical />
-
+<!--      <PostSTT></PostSTT>-->
     <f class="mt-10" />
   </div>
 </template>
