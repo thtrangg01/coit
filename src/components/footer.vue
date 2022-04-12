@@ -1,8 +1,11 @@
 <template>
-  <div class="px-8 py-4 mx-auto text-center" style="background-color: #9cb6d9">
-    <div class="inline-block">
-      <table class="text-left w-full table-fixed">
-        <tr>
+  <div
+    class="px-8 py-4 w-full mx-auto text-center"
+    style="background-color: #9cb6d9"
+  >
+    <div class="inline-block m-auto">
+      <table class="text-left table-fixed w-11/12 m-auto">
+        <tr class="text-xl">
           <th class="pb-2">Company</th>
           <th class="pb-2">Contact</th>
           <th class="pb-2">Country</th>

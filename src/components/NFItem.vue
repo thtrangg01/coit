@@ -84,12 +84,12 @@
             <span class="text-left float-left">
               <input
                 placeholder="Thêm bình luận..."
-                style="width: 300px"
-                class="mr-20 text-sm ml-3"
+                style="width: 370px"
+                class="ml-3 text-sm"
               />
             </span>
 
-            <span class="text-sm float-left">Đăng</span>
+            <span class="text-sm float-left ml-1">Đăng</span>
           </div>
         </div>
       </div>
