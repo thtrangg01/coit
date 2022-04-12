@@ -14,7 +14,7 @@
         <div class="input-cam">
           <div class="input-top">
 
-            <span
+            <span class="text-input-span"
               type="text"
               style="width: 350px"
               contenteditable="true"
