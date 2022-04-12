@@ -1,11 +1,12 @@
 <template>
-  <div class="navbar">
-    <div class="navbar-right">
+  <nav class="h-14 text-center" style="background-color: #9cb6d9">
+    <div>
       <span>
         <svg
           height="35px"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 576 512"
+          class="ml-3 mt-2 float-left"
         >
           <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
           <path
@@ -14,19 +15,19 @@
         </svg>
       </span>
 
-      <p class="brand">CO-IT</p>
+      <span class="float-left ml-3 mt-2 text-lg">CO-IT</span>
     </div>
 
-    <div class="navbar-center">
+    <div class="inline-block mt-2 mr-16">
       <span>
         <b-form-input
-          class="mr-4"
-          style="width: 650px"
+          class="mr-4 float-left"
+          style="width: 400px"
           v-model="text"
           placeholder="Search"
         ></b-form-input>
       </span>
-      <button class="btn-search">
+      <button class="btn-search float-left">
         <svg
           height="30px"
           xmlns="http://www.w3.org/2000/svg"
@@ -40,12 +41,13 @@
       </button>
     </div>
 
-    <div class="navbar-left">
-      <button class="btn-announce">
+    <div class="float-right mt-2">
+      <button class="">
         <svg
           height="30px"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
+          class="mr-4"
         >
           <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
           <path
@@ -59,6 +61,7 @@
           height="30px"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
+          class="mr-4"
         >
           <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
           <path
@@ -67,7 +70,7 @@
         </svg>
       </button>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -75,52 +78,3 @@ export default {
   name: "header",
 };
 </script>
-
-<style scoped>
-.navbar {
-  position: fixed;
-  margin: 0 auto;
-  height: 70px;
-  width: 100%;
-  background-color: #9cb6d9;
-}
-
-.logo {
-  padding-right: 5px;
-}
-.brand {
-  color: black !important;
-  padding-left: 10px;
-  position: center;
-  margin-top: 7px;
-  font-weight: 500;
-  font-size: large;
-}
-
-.btn-search {
-  padding-left: 5px;
-}
-
-.btn-announce {
-  padding-right: 30px;
-}
-
-.btn-login {
-  padding: 0 10px;
-}
-
-.navbar-right {
-  display: flex;
-  margin-left: 20px;
-  margin-top: 10px;
-}
-.navbar-left {
-  display: flex;
-  margin-right: 20px;
-  margin-bottom: 5px;
-}
-.navbar-center {
-  display: flex;
-  margin-bottom: 5px;
-}
-</style>

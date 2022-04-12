@@ -1,8 +1,8 @@
 <template>
-  <div class="text-center " >
+  <div class="text-center">
     <div class="inline-block">
       <div
-        class="text-center h-auto border-r border-t border-l border-b border-black border-solid rounded-3xl"
+        class="text-center h-auto border-2 border-black border-solid rounded-3xl"
         style="width: 480px"
       >
         <div class="inline-block">
@@ -14,13 +14,13 @@
                 class="mt-1 w-10 h-10 rounded-3xl border-2 border-solid border-black float-left"
             /></span>
             <span class="text-left">
-              <span class="text-lg ml-2 float-left mt-2 font-semibold">Trịnh Khánh Huyền</span
-              ><br/>         
-              
+              <span class="text-lg ml-2 float-left mt-2 font-semibold"
+                >Trịnh Khánh Huyền</span
+              ><br />
             </span>
           </div>
 
-          <div class="text-left flex-wrap ml-3" style="width: 450px;">
+          <div class="text-left flex-wrap ml-3" style="width: 450px">
             Bộ Y tế: Bắt buộc 100% cơ sở tiêm vaccine phòng COVID-19 cho trẻ từ
             5 – dưới 12 tuổi phải ký số
           </div>
@@ -72,7 +72,7 @@
               </svg>
             </div>
           </div>
-          <hr class="inline-block mr-16" style="width: 480px;" />
+          <hr class="inline-block mr-16" style="width: 480px" />
           <div class="ml-2 mr-2 mb-3 h-6">
             <div>
               <img
@@ -82,7 +82,11 @@
               />
             </div>
             <span class="text-left float-left">
-              <input placeholder="Thêm bình luận..." style="width: 300px" class="mr-20 text-sm ml-3 ">
+              <input
+                placeholder="Thêm bình luận..."
+                style="width: 300px"
+                class="mr-20 text-sm ml-3"
+              />
             </span>
 
             <span class="text-sm float-left">Đăng</span>
