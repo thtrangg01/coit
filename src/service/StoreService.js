@@ -6,7 +6,9 @@ const storageBucket = firebase.storage().ref("images");
 class StorageService{
   upload(file){
     const random_file_name = uuid_v4();
-    return storageBucket.child(random_file_name).put(file);
+    const filename_extension = file.name.split(".").pop();
+    const filename = random_file_name + "." + filename_extension;
+    return storageBucket.child(filename).put(file);
   }
 
   getDownloadURL(file_name){
