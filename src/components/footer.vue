@@ -1,6 +1,6 @@
 <template>
   <div
-    class="px-8 py-4 w-full mx-auto text-center"
+    class="px-8 py-4 w-full mx-auto text-center absolute bottom-0"
     style="background-color: #9cb6d9"
   >
     <div class="inline-block m-auto">
