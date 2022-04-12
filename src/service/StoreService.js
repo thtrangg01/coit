@@ -8,7 +8,7 @@ class StorageService{
     const random_file_name = uuid_v4();
     const filename_extension = file.name.split(".").pop();
     const filename = random_file_name + "." + filename_extension;
-    return storageBucket.child(filename).put(file);
+    return storageBucket.child(filename).put(file).getDownloadURL();
   }
 
   getDownloadURL(file_name){
