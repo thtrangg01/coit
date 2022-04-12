@@ -1,12 +1,9 @@
 <template>
   <div id="app">
     <h class="mb-10" />
-    <LeftBar class="absolute fixed" />
     <PostSTT class="mb-10 mt-10" />
     <NFItem class="mt-10" />
-    <h />
-    <NFItem class="pt-20" />
-    <f />
+    <f class="mt-10" />
   </div>
 </template>
 
@@ -14,11 +11,10 @@
 import h from "./components/header.vue";
 import NFItem from "./components/NFItem.vue";
 import PostSTT from "./components/CreatePostComponent.vue";
-import LeftBar from "./components/LeftBar.vue";
+import f from "./components/footer.vue";
 export default {
   name: "App",
-  components: { h, NFItem, PostSTT, LeftBar, f },
+  components: { h, NFItem, PostSTT, f },
 };
-import f from "./components/footer.vue";
 </script>
 <style></style>
