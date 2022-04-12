@@ -105,9 +105,9 @@ export default {
 }
 
 .notice-container {
-  position: fixed;
-  top: 62px;
-  right: 96px;
+  position: absolute;
+  top: 8px;
+  right: 65px;
   display: flex;
   flex-direction: row;
   border: 1px ridge;
