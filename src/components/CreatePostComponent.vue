@@ -11,8 +11,8 @@
       <form>
         <div class="input-cam">
           <div class="input-top">
-            <input
-              type="text"
+            <span class="text-input-span"
+              role="textbox"
               style="width: 350px"
               contenteditable="true"
               @input="onDivInput"
