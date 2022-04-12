@@ -1,9 +1,14 @@
 <template>
   <div id="app">
     <h class="mb-10" />
+<<<<<<< tkhuyen
     <!-- <PostSTT class="mb-10 mt-10" />
     <NFItem class="mt-10" /> -->
     <Statistical />
+=======
+    <PostSTT class="mb-10 mt-10" />
+    <NFItem class="mt-10" />
+>>>>>>> master
     <f class="mt-10" />
   </div>
 </template>
@@ -16,7 +21,11 @@ import PostSTT from "./components/CreatePostComponent.vue";
 import f from "./components/footer.vue";
 export default {
   name: "App",
+<<<<<<< tkhuyen
   components: { h, NFItem, PostSTT, f, Statistical },
+=======
+  components: { h, NFItem, PostSTT, f },
+>>>>>>> master
 };
 </script>
 <style></style>
