@@ -84,7 +84,7 @@ export default {
   flex-wrap: wrap;
   width: 480px;
   border-color: grey;
-  z-index: -10;
+  z-index: 0;
 }
 .flex-container-row {
   display: flex;
