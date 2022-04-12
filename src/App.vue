@@ -13,7 +13,7 @@
 
 <script>
 import h from "./components/header.vue";
-import NFItem from "./components/CreatePostComponent.vue";
+import NFItem from "./components/NFItem.vue";
 import f from "./components/footer";
 
 export default {
