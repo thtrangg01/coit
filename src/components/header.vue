@@ -77,6 +77,6 @@
 // import notice from "@/components/notice.vue";
 export default {
   name: "header",
-  components:{},
+  components: {},
 };
 </script>

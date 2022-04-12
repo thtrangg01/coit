@@ -8,7 +8,10 @@ class StorageService{
     const random_file_name = uuid_v4();
     const filename_extension = file.name.split(".").pop();
     const filename = random_file_name + "." + filename_extension;
-    return storageBucket.child(filename).put(file).getDownloadURL();
+    let upload_task = storageBucket.child(filename).put(file);
+
+    // return file url
+    return upload_task.then(snapshot => snapshot.ref.getDownloadURL());
   }
 
   getDownloadURL(file_name){
@@ -23,9 +26,6 @@ class StorageService{
     return storageBucket.listAll();
   }
 
-  get(file_name){
-    return storageBucket.child(file_name).getDownloadURL();
-  }
 
   update(file_name, newFile){
     return storageBucket.child(file_name).put(newFile);
