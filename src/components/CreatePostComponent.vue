@@ -2,25 +2,21 @@
   <div class="flex-container rounded-3xl">
     <div class="flex-container-row">
       <img
-
         class="user-icon border-2 border-solid border-black"
         src="https://i.pinimg.com/originals/8e/1d/78/8e1d788660189c2c9c02d282394ef8a9.png"
         alt="user-icon"
         @click="truyCapUser"
-
       />
 
       <form>
         <div class="input-cam">
           <div class="input-top">
-
-            <span class="text-input-span"
+            <input
               type="text"
               style="width: 350px"
               contenteditable="true"
               @input="onDivInput"
             />
-
             <a @click="taiAnh">
               <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
@@ -96,19 +92,15 @@ export default {
 .flex-container {
   position: static;
   top: 100px;
-
   margin: 0 auto;
-
   display: flex;
   margin: 0 auto;
   flex-direction: column;
   align-content: space-around;
   border: 2px solid;
-
   padding: 5px;
   flex-wrap: wrap;
   width: 480px;
-
 }
 .flex-container-row {
   display: flex;

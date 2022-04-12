@@ -17,12 +17,12 @@
           <td>Covid-19 news</td>
         </tr>
         <tr>
-          <td>Room 602</td>
+          <td>Room: 602</td>
           <td>Gmail: coit@neu.edu.vn</td>
           <td>Humanity</td>
         </tr>
         <tr>
-          <td>Address: 1310, 207 Giải Phóng, Đồng Tâm, Hai Bà Trưng, Hà Nội</td>
+          <td class="w-32 flex-wrap">Address: 1310, 207 Giải Phóng</td>
         </tr>
       </table>
     </div>
