@@ -1,24 +1,20 @@
 <template>
   <div id="app">
-    <h />
-    <NFItem class="pt-20" />
-    <f />
-    <!-- <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view /> -->
+    <h class="mb-10" />
+    <PostSTT class="mb-10 mt-10" />
+    <NFItem class="mt-10" />
+    <f class="mt-10" />
   </div>
 </template>
 
 <script>
 import h from "./components/header.vue";
 import NFItem from "./components/NFItem.vue";
-import f from "./components/footer";
-
+import PostSTT from "./components/CreatePostComponent.vue";
+import f from "./components/footer.vue";
 export default {
   name: "App",
-  components: { h, NFItem, f },
+  components: { h, NFItem, PostSTT, f },
 };
 </script>
 <style></style>
