@@ -21,7 +21,7 @@
               />
             </a>
           </div>
-          <div class="img-content" style="display: flex">
+          <div class="img-content" id="img-content" style="display: flex">
 <!--            <img-->
 <!--                src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/11/28/tiem-vaccine-tre-em-1638069697701984230006.jpeg"-->
 <!--                alt="img-content"-->
@@ -72,7 +72,7 @@ export default {
   },
   data(){
     return {
-      content
+      content:"",
     };
   }
 };
