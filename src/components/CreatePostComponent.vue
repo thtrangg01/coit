@@ -62,11 +62,12 @@ export default {
       input.addEventListener("change", handleFiles, false);
       async function handleFiles() {
         const fileList = this.files;
-        this.image_link = await StoreService.upload(fileList[0]);
+        var image_link = await StoreService.upload(fileList[0]);
         console.log(this.image_link);
         var imgcontent = document.getElementById("img-content");
         var img = document.createElement("img");
-        img.src = this.image_link;
+        img.src = image_link;
+        img.id = "img-1";
         img.style.maxWidth = "380px";
         imgcontent.innerHTML="";
         imgcontent.appendChild(img);
@@ -74,7 +75,10 @@ export default {
       console.log("Tai anh len");
     },
     dangBai() {
-      console.log("Dang bai " + this.content+"\n image "+this.image_link);
+      let img_link= "";
+      if(document.getElementById("img-1")!=null)
+        img_link = document.getElementById("img-1").src;
+      console.log("Dang bai " + this.content+"\n image "+img_link);
     },
   },
   data(){
@@ -82,7 +86,6 @@ export default {
     let photo_link = "https://i.pinimg.com/originals/8e/1d/78/8e1d788660189c2c9c02d282394ef8a9.png";
     return {
       content:"",
-      image_link:"",
       photo_link,
       web_link
     };
