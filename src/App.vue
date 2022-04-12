@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import h from "./components/header.vue";
 import Statistical from "./components/Statistical.vue";
 import NFItem from "./components/NFItem.vue";
 import PostSTT from "./components/CreatePostComponent.vue";
 import f from "./components/footer.vue";
 export default {
   name: "App",
-  components: { h, f, PostSTT },
+
+
 };
 </script>
 <style></style>
