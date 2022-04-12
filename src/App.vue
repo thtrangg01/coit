@@ -2,11 +2,11 @@
   <div id="app">
     <h class="mb-10" />
 
-    <!-- <PostSTT class="mb-10 mt-10" />
-    <NFItem class="mt-10" /> -->
+    <PostSTT class="mb-10 mt-10" />
+    <NFItem class="mt-10" />
     <Statistical />
 
-    <f class="mt-10" />
+<!--    <f class="mt-10" />-->
   </div>
 </template>
 

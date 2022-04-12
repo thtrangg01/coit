@@ -1,12 +1,14 @@
 <template>
   <div class="flex-container rounded-3xl">
     <div class="flex-container-row">
-      <img
-        class="user-icon border-2 border-solid border-black"
-        src="https://i.pinimg.com/originals/8e/1d/78/8e1d788660189c2c9c02d282394ef8a9.png"
-        alt="user-icon"
-        @click="truyCapUser"
-      />
+      <a :href="web_link">
+        <img
+          class="user-icon border-2 border-solid border-black"
+          :src="photo_link"
+          alt="user-icon"
+          @click="truyCapUser"
+        />
+      </a>
 
       <form>
         <div class="input-cam">
@@ -60,23 +62,29 @@ export default {
       input.addEventListener("change", handleFiles, false);
       async function handleFiles() {
         const fileList = this.files;
-        var image_link = await StoreService.upload(fileList[0]);
-        console.log(image_link);
+        this.image_link = await StoreService.upload(fileList[0]);
+        console.log(this.image_link);
         var imgcontent = document.getElementById("img-content");
         var img = document.createElement("img");
-        img.src = image_link;
+        img.src = this.image_link;
+        img.style.maxWidth = "380px";
         imgcontent.innerHTML="";
         imgcontent.appendChild(img);
       }
       console.log("Tai anh len");
     },
     dangBai() {
-      console.log("Dang bai " + this.content);
+      console.log("Dang bai " + this.content+"\n image "+this.image_link);
     },
   },
   data(){
+    let web_link = "";
+    let photo_link = "https://i.pinimg.com/originals/8e/1d/78/8e1d788660189c2c9c02d282394ef8a9.png";
     return {
       content:"",
+      image_link:"",
+      photo_link,
+      web_link
     };
   }
 };
@@ -160,8 +168,5 @@ button:active {
   margin-top: 7px;
   float: right;
   float: top;
-}
-.img-content > img {
-  max-width: 380px;
 }
 </style>
