@@ -56,7 +56,7 @@
         </svg>
       </button>
 
-      <button class="btn-login">
+      <button class="btn-login" @click="loginBtn">
         <svg
           height="30px"
           xmlns="http://www.w3.org/2000/svg"
@@ -75,8 +75,63 @@
 
 <script>
 // import notice from "@/components/notice.vue";
+import firebase from "@/firebase";
+const provider = new firebase.auth.GoogleAuthProvider();
+let user= firebase.currentUser;
 export default {
   name: "header",
-  components:{},
+  components: {},
+  methods: {
+    googleSignIn: function () {
+      // We'll create functionality here
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then((result) => {
+          let token = result.credential.accessToken;
+          let _user = result.user;
+          user = _user;
+          console.log(token); // Token
+          console.log(user); // User that was authenticated
+        })
+        .catch((err) => {
+          console.log(err); // This will give you all the information needed to further debug any errors
+        });
+    },
+
+    googleSignOut: function () {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          console.log("Signout successful");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
+    loginBtn: function () {
+      if (this.isLogin()) {
+        this.googleSignOut();
+      } else {
+        this.googleSignIn();
+      }
+    },
+
+    isLogin: function () {
+      firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+          // User is signed in.
+          console.log(user);
+          return true;
+        } else {
+          // No user is signed in.
+          console.log("No user is signed in");
+          return false;
+        }
+      });
+    },
+  },
 };
 </script>
