@@ -3,7 +3,7 @@
     <h class="mb-10" />
     <LeftBar class="absolute" />
     
-    <Statistical />
+    <!-- <Statistical /> -->
     <PostSTT class="mb-10 mt-10" />
     <NFItem class="mt-10" />
 
