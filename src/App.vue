@@ -2,9 +2,7 @@
   <div id="app">
     <h class="mb-10" />
 
-    <leftBar class="absolute" />
-    <rightBar class="mr-14 absolute" />
-    <NFItem class="mt-10 mr-28" />
+    <LeftBar class="absolute" />
 
     <router-view />
   </div>
@@ -12,14 +10,12 @@
 
 <script>
 import h from "./components/header.vue";
-import Statistical from "./components/Statistical.vue";
-import NFItem from "./components/NFItem.vue";
-import PostSTT from "./components/CreatePostComponent.vue";
-import f from "./components/footer.vue";
-import rightBar from "./components/RightBar";
+import LeftBar from "./components/LeftBar.vue";
+import Footer from "./components/footer.vue";
+
 export default {
   name: "App",
-  components: { h, PostSTT, NFItem, f, rightBar },
+  components: { h, LeftBar, Footer },
 };
 </script>
 <style></style>
