@@ -1,8 +1,7 @@
 <template>
   <div class="ml-24">
-
     <router-link to="/" class="cursor-pointer">Trang chủ</router-link>
-    <br/>
+    <br />
     <router-link to="/feeds" class="font-bold cursor-pointer"
       >Chuyện của tôi</router-link
     >

@@ -16,7 +16,7 @@ import Statistical from "./components/Statistical.vue";
 import NFItem from "./components/NFItem.vue";
 import PostSTT from "./components/CreatePostComponent.vue";
 import f from "./components/footer.vue";
-import rightBar from "./components/RightBar";
+import rightBar from "./components/RightBarItem.vue";
 export default {
   name: "App",
   components: { h, PostSTT, NFItem, f, rightBar },
