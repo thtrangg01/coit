@@ -89,6 +89,17 @@ export default {
       if (document.getElementById("img-1") != null)
         img_link = document.getElementById("img-1").src;
       console.log("Dang bai " + this.content + "\n image " + img_link);
+      let feed = {
+        title: "",
+        desc: this.content,
+        image: img_link,
+        user_id: "bfEUFLG3Bjg70iN3gITUKvzyDqw1",
+        user_name: "Tuấn An Nguyễn",
+        user_image: "https://lh3.googleusercontent.com/a/AATXAJz8KD9cML7f3e_uGMzgBU15IwaOImlfi3SyGX50=s96-c",
+        created_at: Date.now(),
+        updated_at: Date.now()};
+      let mss = DatabaseService.create(feed);
+      console.log(mss);
     },
   },
   data() {
