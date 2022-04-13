@@ -93,9 +93,9 @@ export default {
         title: "",
         desc: this.content,
         image: img_link,
-        user_id: "bfEUFLG3Bjg70iN3gITUKvzyDqw1",
-        user_name: "Tuấn An Nguyễn",
-        user_image: "https://lh3.googleusercontent.com/a/AATXAJz8KD9cML7f3e_uGMzgBU15IwaOImlfi3SyGX50=s96-c",
+        user_id: this.uid,
+        user_name: this.user_name,
+        user_image: this.photo_link,
         created_at: Date.now(),
         updated_at: Date.now()};
       let mss = DatabaseService.create(feed);
@@ -104,8 +104,10 @@ export default {
   },
   data() {
     let web_link = "";
+    let user_name = "Tuấn An Nguyễn";
+    let uid = "bfEUFLG3Bjg70iN3gITUKvzyDqw1";
     let photo_link =
-      "https://i.pinimg.com/originals/8e/1d/78/8e1d788660189c2c9c02d282394ef8a9.png";
+        "https://lh3.googleusercontent.com/a/AATXAJz8KD9cML7f3e_uGMzgBU15IwaOImlfi3SyGX50=s96-c";
     let user = AuthService.getCurrentUser();
     console.log(user);
     DatabaseService.getNewest()
@@ -116,6 +118,8 @@ export default {
 
     return {
       content: "",
+      uid,
+      user_name,
       photo_link,
       web_link,
     };
