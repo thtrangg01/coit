@@ -4,7 +4,7 @@
     <p class="font-bold">Chuyện của tôi</p>
     <div>
       <!-- Using modifiers -->
-      <p v-b-toggle.collapse-2>Hotlines</p>
+      <button v-b-toggle.collapse-2>Hotlines</button>
 
       <b-collapse id="collapse-2">
         <p class="ml-16 w-60 wrap border-t border-b border-l border-r rounded-2xl p-2 border-solid border-black">

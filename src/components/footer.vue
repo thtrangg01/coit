@@ -7,7 +7,7 @@
       <table class="text-left table-fixed w-11/12 m-auto">
         <tr class="text-xl">
           <th class="pb-2">About Us</th>
-          <th class="pb-2">Contact</th>
+          <th class="pb-2">Contact Us</th>
           <th class="pb-2">Our Story</th>
         </tr>
 
