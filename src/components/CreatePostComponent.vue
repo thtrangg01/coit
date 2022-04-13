@@ -65,10 +65,11 @@ export default {
       input.addEventListener("change", handleFiles, false);
       function handleFiles() {
         const fileList = this.files;
+
         StoreService.upload(fileList[0])
           .then((result) => {
             var image_link = result;
-            console.log(this.image_link);
+            console.log(image_link);
             var imgcontent = document.getElementById("img-content");
             var img = document.createElement("img");
             img.src = image_link;
@@ -82,6 +83,7 @@ export default {
       console.log("Tai anh len");
     },
     dangBai() {
+
       let img_link = "";
       if (document.getElementById("img-1") != null)
         img_link = document.getElementById("img-1").src;
