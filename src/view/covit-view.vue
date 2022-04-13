@@ -1,8 +1,7 @@
 <template>
   <div>
-    thông tin covid ở đây nha
-    <!-- <Statistical />  lỗi gì đó-->
-    <f />
+    <!-- <Statistical /> -->
+    <f class="absolute" />
   </div>
 </template>
 
@@ -11,7 +10,7 @@ import Statistical from "@/components/Statistical.vue";
 import f from "@/components/footer";
 export default {
   name: "Statistical",
-  components: { Statistical, f },
+  components: { f, Statistical },
 };
 </script>
 
