@@ -7,22 +7,22 @@
       <table class="text-left table-fixed w-11/12 m-auto">
         <tr class="text-xl">
           <th class="pb-2">About Us</th>
-          <th class="pb-2">Contact</th>
+          <th class="pb-2">Contact Us</th>
           <th class="pb-2">Our Story</th>
         </tr>
 
         <tr>
-          <td>Team 1</td>
+          <td>Group: 1</td>
           <td>Hotlines: 1119xxxx</td>
           <td>Covid-19 news</td>
         </tr>
         <tr>
-          <td>Room 602</td>
+          <td>Room: 602</td>
           <td>Gmail: coit@neu.edu.vn</td>
           <td>Humanity</td>
         </tr>
         <tr>
-          <td>Address: 1310, 207 Giải Phóng, Đồng Tâm, Hai Bà Trưng, Hà Nội</td>
+          <td class="w-32 flex-wrap">Address: 1310, 207 Giải Phóng</td>
         </tr>
       </table>
     </div>

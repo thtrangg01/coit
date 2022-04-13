@@ -8,7 +8,7 @@
       />
     </div>
     <div class="notice-item-content">
-      <p>{{ noticeProps.content }}}</p>
+      <p>{{ noticeProps.content }}</p>
     </div>
     <div class="notice-item-hide">HIDE</div>
   </div>

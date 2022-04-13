@@ -1,7 +1,7 @@
 <template>
   <nav class="h-14 text-center" style="background-color: #9cb6d9">
     <div>
-      <span>
+      <span class="cursor-pointer">
         <svg
           height="35px"
           xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +15,7 @@
         </svg>
       </span>
 
-      <span class="float-left ml-3 mt-2 text-lg">CO-IT</span>
+      <span class="float-left ml-3 mt-2 text-lg cursor-pointer">CO-IT</span>
     </div>
 
     <div class="inline-block mt-2 mr-16">

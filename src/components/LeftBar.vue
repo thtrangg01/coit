@@ -1,0 +1,23 @@
+<template>
+  <div class="ml-24">
+
+    <router-link to="/" class="cursor-pointer">Trang chủ</router-link>
+    <br/>
+    <router-link to="/feeds" class="font-bold cursor-pointer"
+      >Chuyện của tôi</router-link
+    >
+
+    <div>
+      <!-- Using modifiers -->
+      <button v-b-toggle.collapse-2>Hotlines</button>
+
+      <b-collapse id="collapse-2">
+        <p class="ml-4 mt-2 w-60 wrap">
+          - Bộ Y tế: 19003228 <br />
+          - Sở Y tế Hà Nội: 19009095 <br />
+          - Sở Thông tin và Truyền thông Hà Nội: 1022
+        </p>
+      </b-collapse>
+    </div>
+  </div>
+</template>
