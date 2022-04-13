@@ -1,7 +1,7 @@
 <template>
   <div class="ml-24">
-    <p>Trang chủ</p>
-    <p class="font-bold">Chuyện của tôi</p>
+    <p class="cursor-pointer">Trang chủ</p>
+    <p class="font-bold cursor-pointer">Chuyện của tôi</p>
     <div>
       <!-- Using modifiers -->
       <button v-b-toggle.collapse-2>Hotlines</button>
