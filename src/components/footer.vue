@@ -12,7 +12,7 @@
         </tr>
 
         <tr>
-          <td>Team 1</td>
+          <td>Group: 1</td>
           <td>Hotlines: 1119xxxx</td>
           <td>Covid-19 news</td>
         </tr>
