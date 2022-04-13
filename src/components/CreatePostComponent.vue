@@ -65,10 +65,11 @@ export default {
       input.addEventListener("change", handleFiles, false);
       function handleFiles() {
         const fileList = this.files;
+
         StoreService.upload(fileList[0])
           .then((result) => {
             var image_link = result;
-            console.log(this.image_link);
+            console.log(image_link);
             var imgcontent = document.getElementById("img-content");
             var img = document.createElement("img");
             img.src = image_link;
@@ -78,20 +79,35 @@ export default {
             imgcontent.appendChild(img);
           })
           .catch((error) => {});
+
       }
       console.log("Tai anh len");
     },
     dangBai() {
+
       let img_link = "";
       if (document.getElementById("img-1") != null)
         img_link = document.getElementById("img-1").src;
       console.log("Dang bai " + this.content + "\n image " + img_link);
+      let feed = {
+        title: "",
+        desc: this.content,
+        image: img_link,
+        user_id: this.uid,
+        user_name: this.user_name,
+        user_image: this.photo_link,
+        created_at: Date.now(),
+        updated_at: Date.now()};
+      let mss = DatabaseService.create(feed);
+      console.log(mss);
     },
   },
   data() {
     let web_link = "";
+    let user_name = "Tuấn An Nguyễn";
+    let uid = "bfEUFLG3Bjg70iN3gITUKvzyDqw1";
     let photo_link =
-      "https://i.pinimg.com/originals/8e/1d/78/8e1d788660189c2c9c02d282394ef8a9.png";
+        "https://lh3.googleusercontent.com/a/AATXAJz8KD9cML7f3e_uGMzgBU15IwaOImlfi3SyGX50=s96-c";
     let user = AuthService.getCurrentUser();
     console.log(user);
     DatabaseService.getNewest()
@@ -102,6 +118,8 @@ export default {
 
     return {
       content: "",
+      uid,
+      user_name,
       photo_link,
       web_link,
     };
