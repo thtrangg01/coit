@@ -62,7 +62,7 @@ export default {
       input.type="file";
       input.click();
       input.addEventListener("change", handleFiles, false);
-      async function handleFiles() {
+      function handleFiles() {
         const fileList = this.files;
         StoreService.upload(fileList[0]).then(result=>{
           var image_link=result;
