@@ -46,6 +46,8 @@
 
 <script>
 import StoreService from "../service/StoreService";
+import AuthService from "@/service/AuthService";
+import DatabaseService from "@/service/DatabaseService";
 export default {
   name: "CreatePostComponent",
   methods: {
@@ -62,15 +64,17 @@ export default {
       input.addEventListener("change", handleFiles, false);
       async function handleFiles() {
         const fileList = this.files;
-        var image_link = await StoreService.upload(fileList[0]);
-        console.log(this.image_link);
-        var imgcontent = document.getElementById("img-content");
-        var img = document.createElement("img");
-        img.src = image_link;
-        img.id = "img-1";
-        img.style.maxWidth = "380px";
-        imgcontent.innerHTML="";
-        imgcontent.appendChild(img);
+        StoreService.upload(fileList[0]).then(result=>{
+          var image_link=result;
+          console.log(this.image_link);
+          var imgcontent = document.getElementById("img-content");
+          var img = document.createElement("img");
+          img.src = image_link;
+          img.id = "img-1";
+          img.style.maxWidth = "380px";
+          imgcontent.innerHTML="";
+          imgcontent.appendChild(img);
+        }).catch(error=>{});
       }
       console.log("Tai anh len");
     },
@@ -84,6 +88,15 @@ export default {
   data(){
     let web_link = "";
     let photo_link = "https://i.pinimg.com/originals/8e/1d/78/8e1d788660189c2c9c02d282394ef8a9.png";
+    let user = AuthService.getCurrentUser();
+    console.log(user);
+    DatabaseService.getNewest().then(function (result){
+      console.log(result);
+    })
+    .catch(function (error){
+
+    })
+
     return {
       content:"",
       photo_link,
