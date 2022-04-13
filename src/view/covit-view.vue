@@ -10,10 +10,13 @@
 import Statistical from "@/components/Statistical.vue";
 import f from "@/components/footer";
 import RightBar from "../components/RightBar.vue";
+import LeftBar from "../components/LeftBar.vue";
 export default {
   name: "Statistical",
   components: { f, Statistical, RightBar },
 };
 </script>
 
-<style></style>
+<style>
+
+</style>

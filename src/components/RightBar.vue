@@ -4,7 +4,7 @@
     style="width: 400px; height: 140px"
   >
     <div class="m-2">
-      <h4 class="line-clamp-2 h-fit min-h-[3rem]">Bộ y tế</h4>
+      <h5 class="line-clamp-2 h-fit min-h-[3rem]">Bộ y tế</h5>
       <div class="flex flex-row h-full">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRoK0-0nKEMLGDXU5Vlx2BPgOe5F-B2m2MDq5vsgkAFY6ETKoRQ2gUPAJ6_kngPMIZ614&usqp=CAU"
