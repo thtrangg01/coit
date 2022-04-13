@@ -106,7 +106,7 @@ export default {
 
 .notice-container {
   position: absolute;
-  top: 8px;
+  top: 45px;
   right: 65px;
   display: flex;
   flex-direction: row;
