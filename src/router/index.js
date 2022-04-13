@@ -1,10 +1,27 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import HomeView from '../views/HomeView.vue'
+import CovitView from '@/view/covit-view.vue'
+import FeedsVIew from '@/view/feeds-view.vue'
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/",
+    name: "Home",
+    component: CovitView
+  },
+  {
+    path: "/feeds",
+    name: "Feeds",
+    component: FeedsVIew
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: "/"
+  }
+
+
   // {
   //   path: '/',
   //   name: 'home',
@@ -26,6 +43,7 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+
 });
 
 export default router;
