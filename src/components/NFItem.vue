@@ -35,7 +35,7 @@
           </div>
 
           <div>
-            <div class="ml-3">
+            <div class="ml-3 cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
@@ -47,7 +47,7 @@
                 />
               </svg>
             </div>
-            <div>
+            <div class="cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
@@ -59,7 +59,7 @@
                 />
               </svg>
             </div>
-            <div>
+            <div class="cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
@@ -89,7 +89,7 @@
               />
             </span>
 
-            <span class="text-sm float-left ml-1">Đăng</span>
+            <button class="text-sm float-left ml-1">Đăng</button>
           </div>
         </div>
       </div>
