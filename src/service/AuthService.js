@@ -21,6 +21,8 @@ class AuthService {
   getCurrentUser() {
     return auth.currentUser;
   }
+
+  
 }
 
 export default new AuthService();
