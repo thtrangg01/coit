@@ -11,7 +11,7 @@
       </p></router-link
     >
 
-    <div>
+    <div class="mt-3">
       <!-- Using modifiers -->
       <button v-b-toggle.collapse-2>Hotlines</button>
 
