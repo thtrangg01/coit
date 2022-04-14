@@ -10,7 +10,7 @@
 
 <script>
 import h from "./components/header.vue";
-import LeftBar from "./components/LeftBar.vue";
+import LeftBar from "./components/CreatePostComponent.vue";
 import Footer from "./components/footer.vue";
 
 export default {

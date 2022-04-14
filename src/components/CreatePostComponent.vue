@@ -13,7 +13,7 @@
       <form>
         <div class="input-cam">
           <div class="input-top">
-            <span
+            <span id="text-input-span"
               class="text-input-span"
               role="textbox"
               style="width: 350px"
@@ -100,6 +100,8 @@ export default {
         updated_at: Date.now()};
       let mss = DatabaseService.create(feed);
       console.log(mss);
+      document.getElementById("img-content").innerHTML="";
+      document.getElementById("text-input-span").innerHTML="";
     },
   },
   data() {
