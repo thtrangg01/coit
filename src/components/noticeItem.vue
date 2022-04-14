@@ -60,6 +60,7 @@ export default {
   margin-top: 5px;
   margin-bottom: 5px;
   width: 300px;
+  text-align: left;
 }
 .notice-item-hide {
   display: none;
