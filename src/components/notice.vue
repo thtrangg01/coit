@@ -109,7 +109,6 @@ export default {
   top: 45px;
   right: 65px;
   display: flex;
-  flex-direction: row;
   border: 1px ridge;
   border-color: grey;
   border-radius: 10px;
@@ -120,6 +119,7 @@ export default {
   width: 450px;
   max-height: 580px;
   overflow: hidden;
+  z-index: 50;
 }
 
 .notice-tiems-container {
