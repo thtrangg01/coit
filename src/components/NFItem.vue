@@ -6,7 +6,7 @@
         style="width: 480px"
       >
         <div class="inline-block">
-          <div class="h-12 ml-3 mt-2" style="width: 480px">
+          <div class="h-12 mt-2" style="width: 480px; margin-left: 10px" >
             <span
               ><img
                 :src="nfprops.user_image"
