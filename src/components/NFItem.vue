@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+  <div class="text-center" :id="nfprops.feed_id">
     <div class="inline-block">
       <div
         class="text-center h-auto border-2 border-black border-solid rounded-3xl"
@@ -9,27 +9,27 @@
           <div class="h-12 ml-3 mt-2" style="width: 480px">
             <span
               ><img
-                src="https://i.pinimg.com/originals/8e/1d/78/8e1d788660189c2c9c02d282394ef8a9.png"
+                :src="nfprops.user_image"
                 alt=""
                 class="mt-1 w-10 h-10 rounded-3xl border-2 border-solid border-black float-left"
             /></span>
             <span class="text-left">
-              <span class="text-lg ml-2 float-left mt-2 font-semibold"
-                >Trịnh Khánh Huyền</span
+              <span class="text-lg ml-2 float-left mt-2 font-semibold">{{
+                nfprops.user_name
+              }}</span
               ><br />
             </span>
           </div>
 
           <div class="text-left flex-wrap ml-3" style="width: 450px">
-            Bộ Y tế: Bắt buộc 100% cơ sở tiêm vaccine phòng COVID-19 cho trẻ từ
-            5 – dưới 12 tuổi phải ký số
+            {{ nfprops.desc }}
           </div>
 
           <div class="inline-block mr-14">
             <img
-              src="https://quoctesannhihaiphong.vn/wp-content/uploads/2021/02/z2316959685752_6779c1a5c7b75186ec2fa20e898d7e75-scaled.jpg"
+              :src="nfprops.image"
               alt=""
-              class="mt-3 mr-2"
+              class="mt-3 mr-2 cover"
               style="width: 460px"
             />
           </div>
@@ -76,7 +76,7 @@
           <div class="ml-2 mr-2 mb-3 h-6">
             <div>
               <img
-                src="https://i.pinimg.com/originals/8e/1d/78/8e1d788660189c2c9c02d282394ef8a9.png"
+                :src="nfprops.user_image"
                 alt=""
                 class="w-7 h-7 rounded-3xl border-2 border-solid border-black float-left"
               />
@@ -97,4 +97,9 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  nane: "NFItem",
+  props: ["nfprops"],
+};
+</script>
