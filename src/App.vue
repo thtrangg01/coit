@@ -12,6 +12,7 @@
 import h from "./components/header.vue";
 import LeftBar from "./components/LeftBar.vue";
 import Footer from "./components/footer.vue";
+
 export default {
   name: "App",
   components: { h, LeftBar, Footer },
