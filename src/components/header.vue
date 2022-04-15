@@ -70,8 +70,13 @@
         </svg>
       </button>
 
-      <button class="mr-4 rounded-lg">
-        <img v-if="user" @click="logOut()" :src="user.photoURL" />
+      <button class="mr-4">
+        <img
+          class="rounded-full w-10"
+          v-if="user"
+          @click="logOut()"
+          :src="user.photoURL"
+        />
       </button>
 
       <!-- <button
