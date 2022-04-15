@@ -56,7 +56,7 @@
         </svg>
       </button>
 
-      <button class="btn-login">
+      <button v-if="!user" @click="userLogin()" class="btn-login">
         <svg
           height="30px"
           xmlns="http://www.w3.org/2000/svg"
@@ -69,14 +69,74 @@
           />
         </svg>
       </button>
+
+      <button class="mr-4">
+        <img
+          class="rounded-full w-9 border-2 border-solid border-black"
+          v-if="user"
+          @click="logOut()"
+          :src="user.photoURL"
+        />
+      </button>
+
+      <!-- <button
+        v-if="user"
+        type="submit"
+        class="btn btn-dark btn-lg btn-block"
+        @click="logOut()"
+      >
+        Log out
+      </button> -->
+
+      <!-- <p v-if="user">{{ user.displayName }}</p> -->
+      <!-- <p v-if="user">{{ user.email }}</p> -->
     </div>
   </nav>
 </template>
 
 <script>
 // import notice from "@/components/notice.vue";
+import firebase from "firebase";
 export default {
   name: "header",
+  data() {
+    return {
+      user: null,
+    };
+  },
   components: {},
+  methods: {
+    userLogin() {
+      firebase
+        .auth()
+        .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        .then((user) => {
+          console.log(user);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    logOut() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          firebase.auth().onAuthStateChanged(() => {
+            this.$router.push("/");
+          });
+        });
+    },
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.user = user;
+        console.log(user);
+      } else {
+        this.user = null;
+      }
+    });
+  },
 };
 </script>
