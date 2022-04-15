@@ -56,7 +56,7 @@
         </svg>
       </button>
 
-      <button @click="userLogin()" class="btn-login">
+      <button v-if="!user" @click="userLogin()" class="btn-login">
         <svg
           height="30px"
           xmlns="http://www.w3.org/2000/svg"
@@ -70,16 +70,21 @@
         </svg>
       </button>
 
-      <button
+      <button class="mr-4 rounded-lg">
+        <img v-if="user" @click="logOut()" :src="user.photoURL" />
+      </button>
+
+      <!-- <button
+        v-if="user"
         type="submit"
         class="btn btn-dark btn-lg btn-block"
         @click="logOut()"
       >
         Log out
-      </button>
+      </button> -->
 
-      <p v-if="user">{{ user.displayName }}</p>
-      <p v-if="user">{{ user.email }}</p>
+      <!-- <p v-if="user">{{ user.displayName }}</p> -->
+      <!-- <p v-if="user">{{ user.email }}</p> -->
     </div>
   </nav>
 </template>
@@ -122,7 +127,7 @@ export default {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.user = user;
-        console.log(user.displayName);
+        console.log(user);
       } else {
         this.user = null;
       }
