@@ -15,7 +15,7 @@
         </svg>
       </span>
 
-      <span class="float-left ml-3 mt-2 text-lg cursor-pointer">CO-IT</span>
+      <span class="float-left ml-3 mt-2 pt-1 text-lg cursor-pointer ">CO-IT</span>
     </div>
 
     <div class="inline-block mt-2 mr-16">
