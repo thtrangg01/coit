@@ -13,7 +13,8 @@
       <form>
         <div class="input-cam">
           <div class="input-top">
-            <span id="text-input-span"
+            <span
+              id="text-input-span"
               class="text-input-span"
               role="textbox"
               style="width: 350px"
@@ -24,7 +25,7 @@
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
                 alt="HTML tutorial"
-                class="inside-input-cam"
+                class="inside-input-cam cursor-pointer"
               />
             </a>
           </div>
@@ -79,12 +80,10 @@ export default {
             imgcontent.appendChild(img);
           })
           .catch((error) => {});
-
       }
       console.log("Tai anh len");
     },
     dangBai() {
-
       let img_link = "";
       if (document.getElementById("img-1") != null)
         img_link = document.getElementById("img-1").src;
@@ -97,11 +96,12 @@ export default {
         user_name: this.user_name,
         user_image: this.photo_link,
         created_at: Date.now(),
-        updated_at: Date.now()};
+        updated_at: Date.now(),
+      };
       let mss = DatabaseService.create(feed);
       console.log(mss);
-      document.getElementById("img-content").innerHTML="";
-      document.getElementById("text-input-span").innerHTML="";
+      document.getElementById("img-content").innerHTML = "";
+      document.getElementById("text-input-span").innerHTML = "";
     },
   },
   data() {
@@ -109,7 +109,7 @@ export default {
     let user_name = "Tuấn An Nguyễn";
     let uid = "bfEUFLG3Bjg70iN3gITUKvzyDqw1";
     let photo_link =
-        "https://lh3.googleusercontent.com/a/AATXAJz8KD9cML7f3e_uGMzgBU15IwaOImlfi3SyGX50=s96-c";
+      "https://lh3.googleusercontent.com/a/AATXAJz8KD9cML7f3e_uGMzgBU15IwaOImlfi3SyGX50=s96-c";
     let user = AuthService.getCurrentUser();
     console.log(user);
     DatabaseService.getNewest()
