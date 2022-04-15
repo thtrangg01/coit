@@ -72,7 +72,7 @@
 
       <button class="mr-4">
         <img
-          class="rounded-full w-10"
+          class="rounded-full w-9 border-2 border-solid border-black"
           v-if="user"
           @click="logOut()"
           :src="user.photoURL"
