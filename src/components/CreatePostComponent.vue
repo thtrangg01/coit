@@ -106,12 +106,16 @@ export default {
   },
   data() {
     let web_link = "";
-    let user_name = "Tuấn An Nguyễn";
-    let uid = "bfEUFLG3Bjg70iN3gITUKvzyDqw1";
+    let user_name = "";
+    let uid = "";
     let photo_link =
-        "https://lh3.googleusercontent.com/a/AATXAJz8KD9cML7f3e_uGMzgBU15IwaOImlfi3SyGX50=s96-c";
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png";
     let user = AuthService.getCurrentUser();
-    console.log(user);
+    if(user!=null){
+      user_name = user.displayName;
+      uid = user.uid;
+      photo_link = user.photoURL;
+    }
     DatabaseService.getNewest()
       .then(function (result) {
         console.log(result);
