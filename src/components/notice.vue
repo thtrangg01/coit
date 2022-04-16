@@ -8,6 +8,7 @@
         v-for="notice in notices"
         :key="notice.id"
         :noticeProps="notice"
+        @item-hide="hideNoticeItem(notice.id)"
       />
     </div>
   </div>
@@ -19,6 +20,11 @@ export default {
   name: "notice",
   components: {
     noticeItem,
+  },
+  methods:{
+    hideNoticeItem(noticeId){
+      console.log("hide "+noticeId);
+    }
   },
   data() {
     return {
