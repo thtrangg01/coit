@@ -42,7 +42,7 @@
     </div>
 
     <div class="float-right mt-2">
-      <button class="">
+      <button class="" @click="toggleNotice">
         <svg
           height="30px"
           xmlns="http://www.w3.org/2000/svg"
@@ -91,21 +91,27 @@
       <!-- <p v-if="user">{{ user.displayName }}</p> -->
       <!-- <p v-if="user">{{ user.email }}</p> -->
     </div>
+    <notice v-if="this.noticeOn"/>
   </nav>
 </template>
 
 <script>
-// import notice from "@/components/notice.vue";
+import notice from "@/components/notice.vue";
 import firebase from "firebase";
+import Notice from "@/components/notice";
 export default {
   name: "header",
   data() {
     return {
       user: null,
+      noticeOn:false,
     };
   },
-  components: {},
+  components: {Notice},
   methods: {
+    toggleNotice(){
+      this.noticeOn=!this.noticeOn;
+    },
     userLogin() {
       firebase
         .auth()
