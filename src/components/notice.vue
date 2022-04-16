@@ -107,7 +107,7 @@ export default {
 .notice-container {
   position: absolute;
   top: 45px;
-  right: 65px;
+  right: 85px;
   display: flex;
   border: 1px ridge;
   border-color: grey;
