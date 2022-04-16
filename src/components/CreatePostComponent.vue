@@ -1,10 +1,10 @@
 <template>
   <div class="flex-container rounded-3xl">
     <div class="flex-container-row">
-      <a :href="web_link">
+      <a :href="this.web_link">
         <img
           class="user-icon border-2 border-solid border-black"
-          :src="photo_link"
+          :src="this.photo_link"
           alt="user-icon"
           @click="truyCapUser"
         />
@@ -13,6 +13,7 @@
       <form>
         <div class="input-cam">
           <div class="input-top">
+<<<<<<< HEAD
             <span
               id="text-input-span"
               class="text-input-span"
@@ -20,8 +21,25 @@
               style="width: 350px"
               contenteditable="true"
               @input="onDivInput"
+=======
+            <span id="text-input-span"
+                  v-if="this.is_login"
+                  class="text-input-span"
+                  role="textbox"
+                  style="width: 350px"
+                  contenteditable="true"
+                  @input="onDivInput"
+>>>>>>> 78b6c49e81a9d7fa13b7a1ea77c160f70d76cc5d
             />
-            <a @click="taiAnh">
+            <span
+                  v-else
+                  class="span-notlogin"
+                  role="textbox"
+                  style="width: 350px"
+                  contenteditable="false"
+                  @input="onDivInput"
+            />
+            <a @click="taiAnh" v-if="this.is_login">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
                 alt="HTML tutorial"
@@ -29,7 +47,7 @@
               />
             </a>
           </div>
-          <div class="img-content" id="img-content" style="display: flex">
+          <div class="img-content" id="img-content" style="display: flex" v-if="this.is_login">
             <!--            <img-->
             <!--                src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/11/28/tiem-vaccine-tre-em-1638069697701984230006.jpeg"-->
             <!--                alt="img-content"-->
@@ -38,7 +56,7 @@
         </div>
       </form>
     </div>
-    <div class="button-div">
+    <div class="button-div" v-if="this.is_login">
       <button style="float: right" @click="dangBai">
         <strong> Đăng bài </strong>
       </button>
@@ -50,6 +68,7 @@
 import StoreService from "../service/StoreService";
 import AuthService from "@/service/AuthService";
 import DatabaseService from "@/service/DatabaseService";
+import firebase from "firebase";
 export default {
   name: "CreatePostComponent",
   methods: {
@@ -105,13 +124,21 @@ export default {
     },
   },
   data() {
+    let is_login = true;
     let web_link = "";
-    let user_name = "Tuấn An Nguyễn";
-    let uid = "bfEUFLG3Bjg70iN3gITUKvzyDqw1";
+    let user_name = "";
+    let uid = "";
     let photo_link =
+<<<<<<< HEAD
       "https://lh3.googleusercontent.com/a/AATXAJz8KD9cML7f3e_uGMzgBU15IwaOImlfi3SyGX50=s96-c";
     let user = AuthService.getCurrentUser();
     console.log(user);
+=======
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png";
+    if(this.user!=null){
+
+    }
+>>>>>>> 78b6c49e81a9d7fa13b7a1ea77c160f70d76cc5d
     DatabaseService.getNewest()
       .then(function (result) {
         console.log(result);
@@ -124,7 +151,24 @@ export default {
       user_name,
       photo_link,
       web_link,
+      is_login,
     };
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.user = user;
+        console.log(user);
+        this.user_name = this.user.displayName;
+        this.uid = this.user.uid;
+        this.photo_link = this.user.photoURL;
+        this.is_login=true;
+        console.log("An--"+this.user);
+      } else {
+        this.user = null;
+        this.is_login=false;
+      }
+    });
   },
 };
 </script>
@@ -185,6 +229,17 @@ button:active {
   content: "Enter your content...";
   color: grey;
   display: inline-block;
+}
+.span-notlogin:before{
+  background: transparent;
+  border: transparent;
+  margin: 5px;
+  width: 350px;
+  min-height: 20px;
+  display: inline-block;
+  width: 350px;
+  content: "Please login to post your feeds";
+  color: black;
 }
 .input-cam {
   display: flex;
