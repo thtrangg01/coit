@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h class="mb-10 fixed" />
+    <h class="mb-10" />
 
     <LeftBar class="absolute" />
 
