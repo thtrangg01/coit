@@ -10,7 +10,7 @@
     <div class="notice-item-content">
       <p>{{ noticeProps.content }}</p>
     </div>
-    <div class="notice-item-hide">HIDE</div>
+    <div class="notice-item-hide" role="button" @click="hideNotice">HIDE</div>
   </div>
 </template>
 
@@ -18,6 +18,11 @@
 export default {
   nane: "noticeItem",
   props: ["noticeProps"],
+  methods:{
+    hideNotice(){
+      this.$emit("item-hide");
+    }
+  }
 };
 </script>
 
