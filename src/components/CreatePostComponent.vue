@@ -13,27 +13,27 @@
       <form>
         <div class="input-cam">
           <div class="input-top">
-            <span id="text-input-span"
-                  v-if="this.is_login"
-                  class="text-input-span"
-                  role="textbox"
-                  style="width: 350px"
-                  contenteditable="true"
-                  @input="onDivInput"
-            />
             <span
+              id="text-input-span"
+              class="text-input-span"
+              role="textbox"
+              style="width: 350px"
+              contenteditable="true"
+              @input="onDivInput"
+            />
+            <!-- <span
                   v-else
                   class="span-notlogin"
                   role="textbox"
                   style="width: 350px"
                   contenteditable="false"
                   @input="onDivInput"
-            />
+            /> -->
             <a @click="taiAnh" v-if="this.is_login">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
                 alt="HTML tutorial"
-                class="inside-input-cam"
+                class="inside-input-cam cursor-pointer"
               />
             </a>
           </div>
@@ -89,12 +89,10 @@ export default {
             imgcontent.appendChild(img);
           })
           .catch((error) => {});
-
       }
       console.log("Tai anh len");
     },
     dangBai() {
-
       let img_link = "";
       if (document.getElementById("img-1") != null)
         img_link = document.getElementById("img-1").src;
@@ -107,11 +105,12 @@ export default {
         user_name: this.user_name,
         user_image: this.photo_link,
         created_at: Date.now(),
-        updated_at: Date.now()};
+        updated_at: Date.now(),
+      };
       let mss = DatabaseService.create(feed);
       console.log(mss);
-      document.getElementById("img-content").innerHTML="";
-      document.getElementById("text-input-span").innerHTML="";
+      document.getElementById("img-content").innerHTML = "";
+      document.getElementById("text-input-span").innerHTML = "";
     },
   },
   data() {
@@ -120,10 +119,9 @@ export default {
     let user_name = "";
     let uid = "";
     let photo_link =
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png";
-    if(this.user!=null){
-
-    }
+      "https://lh3.googleusercontent.com/a/AATXAJz8KD9cML7f3e_uGMzgBU15IwaOImlfi3SyGX50=s96-c";
+    let user = AuthService.getCurrentUser();
+    console.log(user);
     DatabaseService.getNewest()
       .then(function (result) {
         console.log(result);
