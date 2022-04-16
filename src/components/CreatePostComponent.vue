@@ -212,7 +212,7 @@ button:active {
 }
 .text-input-span:empty::before {
   content: "Enter your content...";
-  color: black;
+  color: grey;
   display: inline-block;
 }
 .span-notlogin:before{
@@ -224,7 +224,7 @@ button:active {
   display: inline-block;
   width: 350px;
   content: "Please login to post your feeds";
-  color: grey;
+  color: black;
 }
 .input-cam {
   display: flex;
