@@ -19,16 +19,17 @@
               role="textbox"
               style="width: 350px"
               contenteditable="true"
+              v-if="this.is_login"
               @input="onDivInput"
             />
-            <!-- <span
+            <span
                   v-else
                   class="span-notlogin"
                   role="textbox"
                   style="width: 350px"
                   contenteditable="false"
                   @input="onDivInput"
-            /> -->
+            />
             <a @click="taiAnh" v-if="this.is_login">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
