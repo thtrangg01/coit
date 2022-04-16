@@ -15,6 +15,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
+// firebase
+// import firebase from "firebase/app";
 Vue.config.productionTip = false;
 
 Vue.use(BootstrapVue);

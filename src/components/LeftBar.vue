@@ -1,6 +1,5 @@
 <template>
   <div class="ml-24">
-
     <router-link to="/">
       <p class="cursor-pointer text-black no-underline">
         Trang chủ
