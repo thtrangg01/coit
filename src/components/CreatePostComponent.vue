@@ -13,7 +13,6 @@
       <form>
         <div class="input-cam">
           <div class="input-top">
-<<<<<<< HEAD
             <span
               id="text-input-span"
               class="text-input-span"
@@ -21,24 +20,15 @@
               style="width: 350px"
               contenteditable="true"
               @input="onDivInput"
-=======
-            <span id="text-input-span"
-                  v-if="this.is_login"
-                  class="text-input-span"
-                  role="textbox"
-                  style="width: 350px"
-                  contenteditable="true"
-                  @input="onDivInput"
->>>>>>> 78b6c49e81a9d7fa13b7a1ea77c160f70d76cc5d
             />
-            <span
+            <!-- <span
                   v-else
                   class="span-notlogin"
                   role="textbox"
                   style="width: 350px"
                   contenteditable="false"
                   @input="onDivInput"
-            />
+            /> -->
             <a @click="taiAnh" v-if="this.is_login">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
@@ -129,16 +119,9 @@ export default {
     let user_name = "";
     let uid = "";
     let photo_link =
-<<<<<<< HEAD
       "https://lh3.googleusercontent.com/a/AATXAJz8KD9cML7f3e_uGMzgBU15IwaOImlfi3SyGX50=s96-c";
     let user = AuthService.getCurrentUser();
     console.log(user);
-=======
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png";
-    if(this.user!=null){
-
-    }
->>>>>>> 78b6c49e81a9d7fa13b7a1ea77c160f70d76cc5d
     DatabaseService.getNewest()
       .then(function (result) {
         console.log(result);
