@@ -1,7 +1,7 @@
 <template>
   <div class="flex-container rounded-3xl">
     <div class="flex-container-row">
-      <a :href="this.web_link">
+      <a :href="this.web_link" v-if="this.is_login">
         <img
           class="user-icon border-2 border-solid border-black"
           :src="this.photo_link"
@@ -9,6 +9,14 @@
           @click="truyCapUser"
         />
       </a>
+      <a @click="userLogin" role="button" v-else>
+        <img
+            class="user-icon border-2 border-solid border-black"
+            :src="this.photo_link"
+            alt="user-icon"
+        />
+      </a>
+
 
       <form>
         <div class="input-cam">
@@ -25,10 +33,11 @@
             <span
                   v-else
                   class="span-notlogin"
-                  role="textbox"
+                  role="button"
                   style="width: 350px"
                   contenteditable="false"
                   @input="onDivInput"
+                  @click="userLogin"
             />
             <a @click="taiAnh" v-if="this.is_login">
               <img
@@ -68,6 +77,17 @@ export default {
     },
     truyCapUser() {
       console.log("Truy cap User");
+    },
+    userLogin() {
+      firebase
+          .auth()
+          .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+          .then((user) => {
+            console.log(user);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     },
     taiAnh() {
       var input = document.createElement("input");
