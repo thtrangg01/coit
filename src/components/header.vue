@@ -15,7 +15,7 @@
         </svg>
       </span>
 
-      <span class="float-left ml-3 mt-2 text-lg cursor-pointer">CO-IT</span>
+      <span class="float-left ml-3 mt-2 pt-1 text-lg cursor-pointer ">CO-IT</span>
     </div>
 
     <div class="inline-block mt-2 mr-16">
@@ -72,7 +72,7 @@
 
       <button class="mr-4">
         <img
-          class="rounded-full w-9 border-2 border-solid border-black"
+          class="rounded-full w-9 border-t border-b border-l border-r border-solid border-black"
           v-if="user"
           @click="logOut()"
           :src="user.photoURL"
