@@ -1,5 +1,5 @@
 <template>
-  <nav class="h-14 text-center" style="background-color: #9cb6d9">
+  <nav class="h-14 text-center w-full" style="background-color: #9cb6d9">
     <div>
       <span class="cursor-pointer">
         <svg
@@ -15,7 +15,9 @@
         </svg>
       </span>
 
-      <span class="float-left ml-3 mt-2 pt-1 text-lg cursor-pointer ">CO-IT</span>
+      <span class="float-left ml-3 mt-2 pt-1 text-lg cursor-pointer"
+        >CO-IT</span
+      >
     </div>
 
     <div class="inline-block mt-2 mr-16">
@@ -91,7 +93,7 @@
       <!-- <p v-if="user">{{ user.displayName }}</p> -->
       <!-- <p v-if="user">{{ user.email }}</p> -->
     </div>
-    <notice v-if="this.noticeOn"/>
+    <notice v-if="this.noticeOn" />
   </nav>
 </template>
 
@@ -104,13 +106,13 @@ export default {
   data() {
     return {
       user: null,
-      noticeOn:false,
+      noticeOn: false,
     };
   },
-  components: {Notice},
+  components: { Notice },
   methods: {
-    toggleNotice(){
-      this.noticeOn=!this.noticeOn;
+    toggleNotice() {
+      this.noticeOn = !this.noticeOn;
     },
     userLogin() {
       firebase

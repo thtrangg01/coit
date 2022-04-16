@@ -1,6 +1,7 @@
 <template>
   <div>
     <RightBar class="absolute mr-10" />
+
     <f class="absolute" />
   </div>
 </template>
