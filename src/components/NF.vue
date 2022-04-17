@@ -1,13 +1,12 @@
 <template>
   <div class="text-center">
     <div class="inline-block">
-      <NFItem
-        class="mt-10"
-        :nfprops="nfi"
-        v-for="nfi in nfs"
-        :key="nfi.id"
-      />
+      <NFItem class="mt-10" :nfprops="nfi" v-for="nfi in nfs" :key="nfi.id" />
     </div>
+    <div>
+       <button class="mt-10" @click="loadFeeds(++currentPage)"> load more</button>
+    </div>
+   
   </div>
 </template>
 
@@ -23,9 +22,18 @@ export default {
       this.nfs.unshift(feed);
     },
     loadFeeds(page) {
-      DatabaseService.getNewest(page,10).then((snapshot) => {
+      console.log("load more data")
+
+      DatabaseService.getNewest(page, 10).then((snapshot) => {
+        let newFeedArr = [];
+
         snapshot.forEach((doc) => {
-          this.nfs.push(doc.val());
+          newFeedArr.unshift(doc.val());
+        });
+
+        // reverse feeds
+        newFeedArr.forEach((feed) => {
+          this.nfs.push(feed);
         });
       });
     },
@@ -33,11 +41,12 @@ export default {
   data() {
     return {
       nfs: [],
+      currentPage: 1,
     };
   },
   created() {
     this.$root.$refs.NF = this;
-    this.loadFeeds(1);
+    this.loadFeeds(this.currentPage);
   },
 };
 </script>
