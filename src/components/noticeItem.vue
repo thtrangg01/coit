@@ -8,7 +8,7 @@
       />
     </div>
     <div class="notice-item-content">
-      <p>{{ noticeProps.content }}</p>
+      {{this.noticeContent}}
     </div>
     <div class="notice-item-hide" role="button" @click="hideNotice">HIDE</div>
   </div>
@@ -21,6 +21,12 @@ export default {
   methods:{
     hideNotice(){
       this.$emit("item-hide");
+    }
+  },
+  computed:{
+    noticeContent(){
+      if(this.noticeProps.content.length>140) return this.noticeProps.content.substring(0,140)+"...";
+      else return this.noticeProps.content;
     }
   }
 };
@@ -65,7 +71,9 @@ export default {
   margin-top: 5px;
   margin-bottom: 5px;
   width: 300px;
+  max-height: 100px;
   text-align: left;
+  overflow: hidden;
 }
 .notice-item-hide {
   display: none;
