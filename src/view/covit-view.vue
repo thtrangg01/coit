@@ -1,17 +1,12 @@
 <template>
-  <div>
-    <div class="text-center">
-      <SLTK class="flex-row inline-block" />
-    </div>
-    <div class="text-center">
-      <TTYT class="inline-block" />
-    </div>
-
-
-    <div class="float-right">
+  <div class="text-center">
+    <div class="float-right mr-20">
       <RightBar class="" />
     </div>
-
+    <div class="mr-28">
+      <SLTK class="" />
+    </div>
+    <div><TTYT class="inline-block ml-96" /></div>
 
     <f class="" />
   </div>

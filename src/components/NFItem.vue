@@ -107,7 +107,7 @@
               <input
                 v-else
                 @input="onDivInput"
-                placeholder="Please login to add a comment"
+                placeholder="Bạn cần đăng nhập để bình luận"
                 style="width: 370px"
                 class="ml-3 text-sm"
                 @click="userLogin"
@@ -178,7 +178,8 @@ export default {
   },
 
   data() {
-    let is_login = true;
+    let is_login = false;
+    let like = false;
     let user = "";
 
     return {
@@ -186,7 +187,7 @@ export default {
       comments: [],
       user,
       is_login,
-      like: false,
+      like,
     };
   },
 
