@@ -13,23 +13,23 @@
         <div class="sltk_map">
             <ul class="nav nav-pills">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ca mới</a>
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Ca mới</a>
                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Ca mới</a>
-                      <a class="dropdown-item" href="#">Tử vong</a>
+                      <a class="dropdown-item" href="">Ca mới</a>
+                      <a class="dropdown-item" href="">Tử vong</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" role="button">Việt Nam</a>
+                    <a class="nav-link" href="" role="button">Việt Nam</a>
                   </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Từ trước đến nay</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Từ trước đến nay</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Từ trước đến nay</a>
-                        <a class="dropdown-item" href="#">2 tuần</a>
-                        <a class="dropdown-item" href="#">30 ngày</a>
-                        <a class="dropdown-item" href="#">3 tháng</a>
-                        <a class="dropdown-item" href="#">6 tháng</a>
+                        <a class="dropdown-item" href="">Từ trước đến nay</a>
+                        <a class="dropdown-item" href="">2 tuần</a>
+                        <a class="dropdown-item" href="">30 ngày</a>
+                        <a class="dropdown-item" href="">3 tháng</a>
+                        <a class="dropdown-item" href="">6 tháng</a>
                     </div>
                 </li>
             </ul>

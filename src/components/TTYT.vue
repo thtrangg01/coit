@@ -25,38 +25,34 @@
                     </p>
                     <p>Các triệu chứng thường gặp nhất:</p>
                     <ul>
-                        <li>sốt</li>
-                        <li>ho</li>
-                        <li>mệt mỏi</li>
-                        <li>mất vị giác hoặc khứu giác</li>
+                        <li>+ sốt</li>
+                        <li>+ ho</li>
+                        <li>+ mệt mỏi</li>
+                        <li>+ mất vị giác hoặc khứu giác</li>
                     </ul>
                     <p>Các triệu chứng ít gặp hơn:</p>
                     <ul>
-                        <li>đau họng</li>
-                        <li>đau đầu</li>
-                        <li>tiêu chảy</li>
-                        <li>da nổi mẩn hay ngón tay hoặc ngón chân bị tấy đỏ hoặc tím tái</li>
+                        <li>+ đau họng</li>
+                        <li>+ đau đầu</li>
+                        <li>+ tiêu chảy</li>
+                        <li>+ da nổi mẩn hay ngón tay hoặc ngón chân bị tấy đỏ hoặc tím tái</li>
                     </ul>
                     <p>Các triệu chứng nghiêm trọng:</p>
                     <ul>
-                        <li>khó thở</li>
-                        <li>mất khả năng nói hay cử động hoặc thấy lú lẫn</li>
-                        <li>đau ngực</li>
+                        <li>+ khó thở</li>
+                        <li>+ mất khả năng nói hay cử động hoặc thấy lú lẫn</li>
+                        <li>+ đau ngực</li>
                     </ul>
                     <p>Hãy đi khám ngay lập tức nếu bạn gặp phải các triệu chứng nghiêm trọng. Luôn gọi điện trước khi gặp 
-                        <br>bác sĩ hoặc đến cơ sở y tế.
+                        bác sĩ hoặc đến cơ sở y tế.
                     </p>
                     <p>
                         Những người có triệu chứng nhẹ và không có biểu hiện bệnh nào khác nên điều trị triệu chứng tại nhà.
                     </p>
                     <p>
                         Thông thường, các triệu chứng sẽ xuất hiện sau 5-6 ngày kể từ khi một người nhiễm vi-rút. Tuy nhiên, 
-                        <br>thời gian này có thể lên tới 14 ngày.
+                        thời gian này có thể lên tới 14 ngày.
                     </p>
-                    <div class="whoint">
-                        <i class="fas fa-globe"> </i>
-                        <span>Tìm hiểu thêm trên <a href="https://www.who.int/health-topics/coronavirus#tab=tab_3">who.int</a></span>
-                    </div>
                 </div>
                 <div class="tab-pane fade" id="pills-bf" role="tabpanel" aria-labelledby="pills-bf-tab">
                     <div class="bp_title">
@@ -109,10 +105,7 @@
                         <li>Đeo khẩu trang y tế để bảo vệ người khác, kể cả khi/trong trường hợp bạn cần liên hệ với nhân viên y 
                             <br>tế để được trợ giúp.</li>
                     </ul>
-                    <div class="whoint">
-                        <i class="fas fa-globe"> </i>
-                        <span>Tìm hiểu thêm trên <a href="https://www.who.int/health-topics/coronavirus#tab=tab_3">who.int</a></span>
-                    </div>
+                
                 </div>
               </div>
         </div>
@@ -126,6 +119,7 @@ export default {
 </script>
 
 <style>
+
 .ttyt {
     width: 480px !important;
 }
@@ -165,19 +159,13 @@ body{
     color: red;
 }
 
-.whoint{
-    display: inline-block;
-    font-size: 22px;
-    margin: 27px 398px;
-    border: 1px solid gray;
-    border-radius: 8px;
-    padding: 10px 10px;
-}
 
 #pills-tc{
     margin-bottom: 20px;
 }
-
+.tab-content{
+    text-align: left;
+}
 .tt_chung{
     display: flex;
     width: 70%;
