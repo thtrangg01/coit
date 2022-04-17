@@ -9,6 +9,7 @@
     </div>
     <div class="notice-item-content">
       {{this.noticeContent}}
+      <p style="color: grey">{{timeSince}}</p>
     </div>
     <div class="notice-item-hide" role="button" @click="hideNotice">HIDE</div>
   </div>
@@ -25,11 +26,11 @@ export default {
   },
   computed:{
     noticeContent(){
-      if(this.noticeProps.content.length>140) return this.noticeProps.content.substring(0,140)+"...";
+      if(this.noticeProps.content.length>100) return this.noticeProps.content.substring(0,100)+"...";
       else return this.noticeProps.content;
     },
-    timeSince(date) {
-
+    timeSince() {
+      let date = this.noticeProps.create_date;
       var seconds = Math.floor((new Date() - date) / 1000);
 
       var interval = seconds / 31536000;
