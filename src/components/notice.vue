@@ -13,6 +13,7 @@
         :key="notice.id"
         :noticeProps="notice"
         @item-hide="hideNoticeItem(notice.id)"
+        @change-readed="changeReaded(notice.id)"
       />
       <noticeItem
           v-if="isnotReaded"
@@ -20,6 +21,7 @@
           :key="notice.id"
           :noticeProps="notice"
           @item-hide="hideNoticeItem(notice.id)"
+          @change-readed="changeReaded(notice.id)"
       />
     </div>
   </div>
@@ -51,6 +53,10 @@ export default {
       document.getElementById("notreaded-btn").style.backgroundColor="#e7f3ff";
       document.getElementById("notreaded-btn").style.color="#2a82f3";
       this.isnotReaded=true;
+    },
+    changeReaded(noticeId){
+      let noti = this.notices.findIndex(n => n.id === noticeId);
+      this.notices[noti].isReaded=true;
     }
   },
   data() {
