@@ -75,14 +75,12 @@ class DatabaseService {
     return db.orderByChild("user_id").equalTo(user_id).get();
   }
 
-  getNewest() {
-    return db.orderByChild("created_at").limitToLast(1).get();
+  getNewest(page) {
+    let startAt = (page - 1) * 10;
+    return db.orderByChild("created_at").limitToLast(10).startAt(startAt).get();
   }
 
-  getNewestByPageAndSize(page, size=10) {
-    const startAt = page * size;
-    return db.orderByChild("created_at").limitToLast(size).startAt(startAt).get();
-  }
+
 /**
  * 
  * @param {*} notice_id 
