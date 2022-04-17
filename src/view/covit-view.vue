@@ -6,9 +6,8 @@
     <div class="text-center">
       <TTYT class="inline-block" />
     </div>
-    
 
-    <f class="static" />
+    <f class="" />
   </div>
 </template>
 

@@ -7,7 +7,7 @@
         class="w-7 h-7 rounded-3xl border-2 border-solid border-black float-left"
     /></a>
 
-    <span class="text-base ml-3 mt-2 float-left font-semibold">
+    <span class="text-base ml-3 float-left font-semibold">
       {{ cmtprops.user.displayName }}
     </span>
 
