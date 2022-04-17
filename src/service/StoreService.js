@@ -4,6 +4,11 @@ import { v4 as uuid_v4 } from "uuid";
 // save files in /images/
 const storageBucket = firebase.storage().ref("images");
 class StorageService{
+  /**
+   * upload a file to firebase storage
+   * @param {*} file 
+   * @returns {String} file_name
+   */
   upload(file){
     const random_file_name = uuid_v4();
     const filename_extension = file.name.split(".").pop();
