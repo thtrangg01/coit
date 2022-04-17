@@ -18,7 +18,11 @@ import NFItem from "./NFItem.vue";
 export default {
   name: "nfs",
   components: { NFItem },
-
+  methods:{
+    afterPost(feed){
+      this.nfs.unshift(feed);
+    }
+  },
   data() {
     return {
       nfs: [
@@ -61,5 +65,8 @@ export default {
       ],
     };
   },
+  created() {
+    this.$root.$refs.NF = this;
+  }
 };
 </script>
