@@ -86,6 +86,7 @@ class DatabaseService {
   insertComment(id, comment) {
     db.child(id).get().then(snapshot => {
       const feed = snapshot.val();
+      feed.comments.push(comment);
       NoticesService.addNotices(feed);
     }).catch(error => {
       console.log(error);

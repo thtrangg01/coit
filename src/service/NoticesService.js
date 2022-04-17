@@ -21,8 +21,8 @@ class NoticesService {
    * @param {*} user_id
    * @returns {Promise}
    */
-  getByUserId(user_id) {
-    return db.orderByChild("user_id").equalTo(user_id).get();
+  getByUserId(user) {
+    return db.orderByChild("user").equalTo(user).get();
   }
 
   /**
