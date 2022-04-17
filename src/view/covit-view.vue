@@ -7,13 +7,19 @@
       <TTYT class="inline-block" />
     </div>
 
+
+    <div class="float-right">
+      <RightBar class="" />
+    </div>
+
+
     <f class="" />
   </div>
 </template>
 
 <script>
 import f from "@/components/footer";
-import RightBar from "../components/RightBar.vue";
+import RightBar from "@/components/RightBar.vue";
 import SLTK from "@/components/SLTK.vue";
 import TTYT from "@/components/TTYT.vue";
 
