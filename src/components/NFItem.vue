@@ -9,13 +9,13 @@
           <div class="h-12 mt-2" style="width: 480px; margin-left: 10px">
             <span
               ><img
-                :src="nfprops.user_image"
+                :src="nfprops.user.photoURL"
                 alt=""
                 class="mt-1 w-10 h-10 rounded-3xl border-2 border-solid border-black float-left"
             /></span>
             <span class="text-left">
               <span class="text-lg ml-2 float-left mt-2 font-semibold">{{
-                nfprops.user_name
+                nfprops.user.displayName
               }}</span
               ><br />
             </span>
@@ -80,7 +80,7 @@
             <div>
               <a v-if="this.is_login">
                 <img
-                  :src="nfprops.user_image"
+                  :src="nfprops.user.photoURL"
                   alt=""
                   class="w-7 h-7 rounded-3xl border-2 border-solid border-black float-left"
               /></a>
