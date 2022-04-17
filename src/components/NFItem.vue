@@ -171,13 +171,14 @@ export default {
         };
         this.comments.push(comment);
         let mss = DatabaseService.insertComment(comment);
-        this.content = "";
+        this.content = " ";
       }
     },
   },
 
   data() {
-    let is_login = true;
+    let is_login = false;
+    let like = false;
     let user = "";
 
     return {
@@ -185,7 +186,7 @@ export default {
       comments: [],
       user,
       is_login,
-      like: false,
+      like,
     };
   },
 
