@@ -31,9 +31,16 @@ export default {
     noticeContent(){
       let content = "";
       if (this.noticeProps.type === "comment"){
-        let comment = this.noticeProps.feed.comments[0];
-        content = comment.user.displayName + " đã comment vào bài của bạn: "+comment.content;
+        let comms = this.noticeProps.feed.comments;
+        let comment = comms[comms.length-1];
+        content = comment.user.displayName + " đã comment vào bài viết của bạn: "+comment.content;
         this.photo_link = comment.user.photoURL;
+      }
+      else if(this.noticeProps.type === "react"){
+        let reas = this.noticeProps.feed.likes;
+        let react = reas[reas.length-1];
+        content = react.displayName + " đã like bài viết của bạn!";
+        this.photo_link = react.photoURL;
       }
       if(content.length>100) return content.substring(0,100)+"...";
       else return content;
