@@ -7,7 +7,7 @@
           alt="user-icon"
       />
     </div>
-    <div class="notice-item-content">
+    <div :class="noticeProps.isReaded?'notice-item-content-readed':'notice-item-content'">
       {{this.noticeContent}}
       <p style="color: grey">{{timeSince}}</p>
     </div>
@@ -105,6 +105,15 @@ export default {
   max-height: 100px;
   text-align: left;
   overflow: hidden;
+}
+.notice-item-content-readed{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 300px;
+  max-height: 100px;
+  text-align: left;
+  overflow: hidden;
+  color: gray;
 }
 .notice-item-hide {
   display: none;
