@@ -122,8 +122,12 @@ class DatabaseService {
    * @returns {Promise}
    */
    changeLike(id, user_id) {
-    const liked = await db.child(id).child("likes").child(user_id).once("value");
-    return  liked? db.child(id).child("likes").child(user_id).remove() : db.child(id).child("likes").push(user_id);
+    db.child(id).child("likes").child(user_id).once("value").then(snapshot => {
+      liked = snapshot.val();
+      return  liked? db.child(id).child("likes").child(user_id).remove() : db.child(id).child("likes").push(user_id);
+    }).catch(error => {
+      console.log(error);
+    });
   }
 }
 
