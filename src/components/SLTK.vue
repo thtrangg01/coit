@@ -129,7 +129,7 @@ export default {};
 
 .tt_chung {
   display: flex;
-  width: 70%;
+
   margin: 20px auto;
   justify-content: space-around;
 }

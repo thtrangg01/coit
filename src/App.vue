@@ -18,4 +18,10 @@ export default {
   components: { h, LeftBar, Footer },
 };
 </script>
-<style></style>
+<style>
+#app {
+  width: 100%;
+  height: 100%;
+  margin: 0 0;
+}
+</style>
