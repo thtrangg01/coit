@@ -114,25 +114,28 @@ export default {
       console.log("Tai anh len");
     },
     dangBai() {
-      let img_link = "";
-      if (document.getElementById("img-1") != null)
-        img_link = document.getElementById("img-1").src;
-      console.log("Dang bai " + this.content + "\n image " + img_link);
-      let feed = {
-        title: "",
-        desc: this.content,
-        image: img_link,
-        user_id: this.uid,
-        user_name: this.user_name,
-        user_image: this.photo_link,
-        created_at: Date.now(),
-        updated_at: Date.now(),
-      };
-      let mss = DatabaseService.create(feed);
-      console.log(mss);
-      this.$root.$refs.NF.afterPost(feed);
-      document.getElementById("img-content").innerHTML = "";
-      document.getElementById("text-input-span").innerHTML = "";
+      if(this.content.trim()!=""||document.getElementById("img-1") != null) {
+        let img_link = "";
+        if (document.getElementById("img-1") != null)
+          img_link = document.getElementById("img-1").src;
+        console.log("Dang bai " + this.content + "\n image " + img_link);
+        let feed = {
+          title: "",
+          desc: this.content,
+          image: img_link,
+          user_id: this.uid,
+          user_name: this.user_name,
+          user_image: this.photo_link,
+          created_at: Date.now(),
+          updated_at: Date.now(),
+        };
+        let mss = DatabaseService.create(feed);
+        console.log(mss);
+        this.$root.$refs.NF.afterPost(feed);
+        document.getElementById("img-content").innerHTML = "";
+        document.getElementById("text-input-span").innerHTML = "";
+        this.content="";
+      }
     },
   },
   data() {
