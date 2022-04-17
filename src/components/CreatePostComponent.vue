@@ -73,7 +73,7 @@ export default {
   name: "CreatePostComponent",
   methods: {
     onDivInput(e) {
-      this.content = e.target.innerHTML;
+      this.content = e.target.innerText;
     },
     truyCapUser() {
       console.log("Truy cap User");
