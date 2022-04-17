@@ -22,7 +22,7 @@ class NoticesService {
    * @returns {Promise}
    */
   getByUserId(user_id) {
-    return db.orderByChild("user_id").equalTo(user_id).get();
+    return db.orderByChild("uid").equalTo(user_id).get();
   }
 
   /**
@@ -52,7 +52,6 @@ class NoticesService {
         create_date: Date.now(),
         isReaded: false,
       };
-
       notices.push(notice);
       db.push(notice);
     }
@@ -66,7 +65,7 @@ class NoticesService {
    * @returns {Promise}
    */
   changeIsReaded(notice_id) {
-    return db.child(notice_id).update({ isReaded: true });
+    db.child(notice_id);
   }
 }
 

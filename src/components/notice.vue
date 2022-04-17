@@ -69,9 +69,10 @@ export default {
         console.log("Start");
         console.log("this.uid "+this.uid);
         NoticesService.getByUserId(this.uid).then((notis)=>{
+          this.notices=[];
           notis.forEach(n=>{
             this.notices.push(n.val());
-            console.log(n.val());
+            console.log(JSON.stringify(n.val()));
           })
         })
     }
@@ -170,10 +171,16 @@ export default {
       // ],
     };
   },
+
   created() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.user = user;
+        this.user = {
+          uid: user.uid,
+          photoURL: user.photoURL,
+          email: user.email,
+          displayName: user.displayName,
+        };
         console.log(user);
         this.uid = this.user.uid;
         this.is_login=true;
