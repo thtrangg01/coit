@@ -1,19 +1,20 @@
 <template>
-  <div>
+  <span>
     <a v-if="this.is_login">
       <img
-        :src="cmtprops.user.photoURL"
+        :src="nfprops.user.photoURL"
         alt=""
         class="w-7 h-7 rounded-3xl border-2 border-solid border-black float-left"
     /></a>
-    <span class="text-left">
-      <span class="text-lg ml-2 float-left mt-2 font-semibold">{{
-        cmtprops.user.displayName
-      }}</span
-      ><br />
+
+    <span class="text-base ml-2 mt-2 float-left font-semibold">
+      {{ cmtprops.user.displayName }}
     </span>
-    <p>{{ cmtprops.content }}</p>
-  </div>
+
+    <p class="ml-2 mb-3 break-words float-left text-left" style="width: 450px">
+      {{ cmtprops.content }}
+    </p>
+  </span>
 </template>
 
 <script>

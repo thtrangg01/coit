@@ -78,7 +78,7 @@
           <hr class="inline-block mr-16" style="width: 478px" />
           <Comment
             v-for="cmt in comments"
-            :key="cmt.comment_id"
+            :key="cmt.user.uid"
             :cmtprops="cmt"
           />
           <hr class="inline-block mr-16" style="width: 478px" />
