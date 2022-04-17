@@ -74,6 +74,7 @@ export default {
   methods: {
     onDivInput(e) {
       this.content = e.target.innerText;
+      console.log(this.content);
     },
     truyCapUser() {
       console.log("Truy cap User");
