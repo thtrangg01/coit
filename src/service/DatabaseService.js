@@ -3,11 +3,11 @@ import { v4 as uuid_v4 } from "uuid";
 import NoticesService from "./NoticesService";
 
 // 'feeds' the same as collection in mongodb
-const db = firebase.database().ref("feeds");
+const db = firebase.database().ref("/feeds");
 
 /*
   feed = {
-    feed_id: uuid(),
+    id: uuid(),
     title: "",
     desc: "",
     image: "",

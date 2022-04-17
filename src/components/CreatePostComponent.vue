@@ -235,7 +235,7 @@ button:active {
   display: inline-block;
 }
 .text-input-span:empty::before {
-  content: "Enter your content...";
+  content: "Bạn muốn chia sẻ điều gì...";
   color: grey;
   display: inline-block;
 }
@@ -247,7 +247,7 @@ button:active {
   min-height: 20px;
   display: inline-block;
   width: 350px;
-  content: "Please login to post your feeds";
+  content: "Hãy đăng nhập để đăng bài của bạn";
   color: black;
 }
 .input-cam {
