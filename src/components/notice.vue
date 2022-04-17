@@ -7,6 +7,7 @@
       <button class="button-mid" style="background:#e7f3ff;color:#2a82f3" id="all-btn" @click="all">Tất cả</button>
       <button class="button-mid" id="notreaded-btn" @click="notReaded">Chưa đọc</button>
     </div>
+
     <div class="notice-tiems-container" v-if="is_login">
       <noticeItem v-if="!isnotReaded"
         v-for="notice in notices"
