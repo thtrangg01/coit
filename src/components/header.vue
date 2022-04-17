@@ -47,7 +47,7 @@
     <div class="float-right mt-2">
       <button class="" @click="toggleNotice">
         <svg
-          v-if="!noticeOn"
+          v-if="noticeOn"
           height="30px"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
@@ -59,7 +59,7 @@
           />
         </svg>
         <svg
-          v-if="noticeOn"
+          v-if="!noticeOn"
           height="30px"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
