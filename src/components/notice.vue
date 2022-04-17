@@ -3,11 +3,11 @@
     <div class="notice-label">
       Thông báo
     </div>
-    <div class="notice-buttons">
+    <div class="notice-buttons" v-if="is_login">
       <button class="button-mid" style="background:#e7f3ff;color:#2a82f3" id="all-btn" @click="all">Tất cả</button>
       <button class="button-mid" id="notreaded-btn" @click="notReaded">Chưa đọc</button>
     </div>
-    <div class="notice-tiems-container">
+    <div class="notice-tiems-container" v-if="is_login">
       <noticeItem v-if="!isnotReaded"
         v-for="notice in notices"
         :key="notice.id"
@@ -24,11 +24,13 @@
           @change-readed="changeReaded(notice.id)"
       />
     </div>
+    <div v-if="!is_login" style="padding: 10px">Bạn vẫn chưa đăng nhập để nhận thông báo</div>
   </div>
 </template>
 
 <script>
 import noticeItem from "./noticeItem";
+import firebase from "firebase";
 export default {
   name: "notice",
   components: {
@@ -61,6 +63,8 @@ export default {
   },
   data() {
     return {
+      uid:"",
+      is_login:false,
       isnotReaded:false,
       notices: [
         {
@@ -149,6 +153,19 @@ export default {
         },
       ],
     };
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.user = user;
+        console.log(user);
+        this.uid = this.user.uid;
+        this.is_login=true;
+      } else {
+        this.user = null;
+        this.is_login=false;
+      }
+    });
   },
 };
 </script>
