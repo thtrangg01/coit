@@ -3,9 +3,9 @@
     <!-- Số liệu thống kê -->
     <div class="sltk">
       <div class="sltk_title">
-        <h1>Số liệu thống kê</h1>
-        <h2>- Số ca nhiễm mới và số ca tử vong</h2>
-        <p>
+        <h3 class="text-left">Số liệu thống kê</h3>
+        <p class="text-left text-lg">- Số ca nhiễm mới và số ca tử vong</p>
+        <p class="text-left">
           Theo
           <a href="https://github.com/CSSEGISandData/COVID-19">
             JHU CSSE COVID-19 Data </a

@@ -6,10 +6,9 @@
     <div class="text-center">
       <TTYT class="inline-block" />
     </div>
+    
 
-    <!-- <RightBar class="float-right mr-10" /> -->
-
-    <f class="" />
+    <f class="static" />
   </div>
 </template>
 
@@ -25,5 +24,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

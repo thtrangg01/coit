@@ -1,6 +1,6 @@
 <template>
   <div
-    class="right-0 border-2 border-solid border-black rounded-xl"
+    class="border-2 border-solid border-black rounded-xl"
     style="width: 400px; height: 140px"
   >
     <div class="m-2">
