@@ -1,5 +1,5 @@
 <template>
-  <div class="notice-item" :id="noticeProps.id">
+  <div class="notice-item" :id="noticeProps.id" role="button" @click="changeReaded">
     <div class="notice-item-img">
       <img
           class="user-icon"
@@ -22,6 +22,9 @@ export default {
   methods:{
     hideNotice(){
       this.$emit("item-hide");
+    },
+    changeReaded(){
+      this.$emit("change-readed");
     }
   },
   computed:{
