@@ -130,6 +130,7 @@ export default {
       };
       let mss = DatabaseService.create(feed);
       console.log(mss);
+      this.$root.$refs.NF.afterPost(feed);
       document.getElementById("img-content").innerHTML = "";
       document.getElementById("text-input-span").innerHTML = "";
     },
