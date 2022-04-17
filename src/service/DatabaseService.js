@@ -11,24 +11,20 @@ const db = firebase.database().ref("/feeds");
     title: "",
     desc: "",
     image: "",
-    user_id: "",
-    user_name: "",
-    user_image: "",
+    user: user,
     created_at: Date.now(),
     updated_at: Date.now(),
     comments: [
       {
         comment_id: uuid(),
-        user_id: "",
-        user_name: "",
-        user_image: "", 
+        user: user,
         content: "",
         created_at: Date.now(),
         updated_at: Date.now()
       },
       ...
     ],
-    likes: [uuid_1, uuid_2, ...],
+    likes: [user1, user2,...],
   }
 */
 
@@ -90,6 +86,7 @@ class DatabaseService {
   insertComment(id, comment) {
     db.child(id).get().then(snapshot => {
       const feed = snapshot.val();
+      feed.comments.push(comment);
       NoticesService.addNotices(feed);
     }).catch(error => {
       console.log(error);

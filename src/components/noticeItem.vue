@@ -3,7 +3,7 @@
     <div class="notice-item-img">
       <img
           class="user-icon"
-          :src="noticeProps.img"
+          :src="this.photo_link"
           alt="user-icon"
       />
     </div>
@@ -29,8 +29,21 @@ export default {
   },
   computed:{
     noticeContent(){
-      if(this.noticeProps.content.length>100) return this.noticeProps.content.substring(0,100)+"...";
-      else return this.noticeProps.content;
+      let content = "";
+      if (this.noticeProps.type === "comment"){
+        let comms = this.noticeProps.feed.comments;
+        let comment = comms[comms.length-1];
+        content = comment.user.displayName + " đã comment vào bài viết của bạn: "+comment.content;
+        this.photo_link = comment.user.photoURL;
+      }
+      else if(this.noticeProps.type === "react"){
+        let reas = this.noticeProps.feed.likes;
+        let react = reas[reas.length-1];
+        content = react.displayName + " đã like bài viết của bạn!";
+        this.photo_link = react.photoURL;
+      }
+      if(content.length>100) return content.substring(0,100)+"...";
+      else return content;
     },
     timeSince() {
       let date = this.noticeProps.create_date;
@@ -59,6 +72,11 @@ export default {
       }
       return Math.floor(seconds) + " giây trước";
     }
+  },
+  data(){
+    return{
+      photo_link:"",
+    };
   }
 };
 </script>

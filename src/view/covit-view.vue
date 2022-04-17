@@ -7,11 +7,13 @@
       <TTYT class="inline-block" />
     </div>
 
+
     <div class="float-right">
       <RightBar class="" />
     </div>
 
-    <f class="static" />
+
+    <f class="" />
   </div>
 </template>
 

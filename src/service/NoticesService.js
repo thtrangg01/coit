@@ -8,9 +8,11 @@ const db = firebase.database().ref("/notices");
   notices = {
     id : uuid_v4,
     feed: feed,
-    user_id: user_id,
+    user: user,
     create_date: now(),
-    isReaded: boolean
+    isReaded: boolean,
+    content: '',
+    type: '' (comment, react)
   }
 */
 
@@ -20,7 +22,7 @@ class NoticesService {
    * @returns {Promise}
    */
   getByUserId(user_id) {
-    return db.orderByChild("user_id").equalTo(user_id).get();
+    return db.orderByChild("uid").equalTo(user_id).get();
   }
 
   /**
@@ -50,7 +52,6 @@ class NoticesService {
         create_date: Date.now(),
         isReaded: false,
       };
-
       notices.push(notice);
       db.push(notice);
     }
@@ -64,7 +65,7 @@ class NoticesService {
    * @returns {Promise}
    */
   changeIsReaded(notice_id) {
-    return db.child(notice_id).update({ isReaded: true });
+    db.child(notice_id);
   }
 }
 
