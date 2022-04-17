@@ -4,9 +4,8 @@
       <NFItem class="mt-10" :nfprops="nfi" v-for="nfi in nfs" :key="nfi.id" />
     </div>
     <div>
-       <button class="mt-10" @click="loadFeeds(++currentPage)"> load more</button>
+      <button class="mt-10" @click="loadFeeds(++currentPage)">Load more</button>
     </div>
-   
   </div>
 </template>
 
@@ -22,7 +21,7 @@ export default {
       this.nfs.unshift(feed);
     },
     loadFeeds(page) {
-      console.log("load more data")
+      console.log("load more data");
 
       DatabaseService.getNewest(page, 10).then((snapshot) => {
         let newFeedArr = [];
