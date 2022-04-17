@@ -131,9 +131,7 @@ export default {
           title: "",
           desc: this.content,
           image: img_link,
-          user_id: this.uid,
-          user_name: this.user_name,
-          user_image: this.photo_link,
+          user:this.user,
           created_at: Date.now(),
           updated_at: Date.now(),
         };
@@ -149,15 +147,11 @@ export default {
   data() {
     let is_login = true;
     let web_link = "";
-    let user_name = "";
-    let uid = "";
     let photo_link =
       "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png";
 
     return {
       content: "",
-      uid,
-      user_name,
       photo_link,
       web_link,
       is_login,
@@ -168,8 +162,6 @@ export default {
       if (user) {
         this.user = user;
         console.log(user);
-        this.user_name = this.user.displayName;
-        this.uid = this.user.uid;
         this.photo_link = this.user.photoURL;
         this.is_login = true;
         console.log("An--" + this.user);
