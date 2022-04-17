@@ -7,7 +7,7 @@ const db = firebase.database().ref("feeds");
 
 /*
   feed = {
-    feed_id: uuid(),
+    id: uuid(),
     title: "",
     desc: "",
     image: "",

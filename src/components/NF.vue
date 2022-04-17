@@ -5,7 +5,7 @@
         class="mt-10"
         :nfprops="nfi"
         v-for="nfi in nfs"
-        :key="nfi.feed_id"
+        :key="nfi.id"
       />
     </div>
   </div>
@@ -26,6 +26,7 @@ export default {
       DatabaseService.getNewest(page,10).then((snapshot) => {
         snapshot.forEach((doc) => {
           this.nfs.push(doc.val());
+          console.log(this.nfs)
         });
       });
     },
