@@ -31,6 +31,7 @@
 <script>
 import noticeItem from "./noticeItem";
 import firebase from "firebase";
+import NoticesService from "@/service/NoticesService";
 export default {
   name: "notice",
   components: {
@@ -59,6 +60,15 @@ export default {
     changeReaded(noticeId){
       let noti = this.notices.findIndex(n => n.id === noticeId);
       this.notices[noti].isReaded=true;
+      NoticesService.changeIsReaded(noticeId);
+    },
+    loadNoti(){
+      if(this.is_login)
+        NoticesService.getByUserId(this.uid).then((notis)=>{
+          notis.forEach(n=>{
+            this.notices.push(n.val());
+          })
+        })
     }
   },
   data() {
@@ -155,6 +165,7 @@ export default {
     };
   },
   created() {
+    this.loadNoti();
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.user = user;
