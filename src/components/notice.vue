@@ -4,15 +4,23 @@
       Thông báo
     </div>
     <div class="notice-buttons">
-      <button class="button-mid">Tất cả</button>
-      <button class="button-mid">Chưa đọc</button>
+      <button class="button-mid" @click="all">Tất cả</button>
+      <button class="button-mid" @click="notReaded">Chưa đọc</button>
     </div>
     <div class="notice-tiems-container">
       <noticeItem
+          v-if="!isnotReaded"
         v-for="notice in notices"
         :key="notice.id"
         :noticeProps="notice"
         @item-hide="hideNoticeItem(notice.id)"
+      />
+      <noticeItem
+          v-else
+          v-for="notice in notices"
+          :key="notice.id"
+          :noticeProps="notice"
+          @item-hide="hideNoticeItem(notice.id)"
       />
     </div>
   </div>
@@ -30,10 +38,17 @@ export default {
       let noti = this.notices.findIndex(n => n.id === noticeId);
       this.notices.splice(noti,1);
       console.log("hide "+noticeId);
+    },
+    all(){
+
+    },
+    notReaded(){
+
     }
   },
   data() {
     return {
+      isnotReaded:false,
       notices: [
         {
           id: "notice-1",
@@ -150,6 +165,13 @@ export default {
 
 .button-mid{
   background: lightgray;
+  border-radius: 40px;
+  margin: 5px;
+  padding: 5px 10px;
+}
+.button-mid-blue{
+  background: lightblue;
+  color: blue;
   border-radius: 40px;
   margin: 5px;
   padding: 5px 10px;
