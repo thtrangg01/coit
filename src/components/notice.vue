@@ -69,9 +69,10 @@ export default {
         console.log("Start");
         console.log("this.uid "+this.uid);
         NoticesService.getByUserId(this.uid).then((notis)=>{
+          this.notices=[];
           notis.forEach(n=>{
             this.notices.push(n.val());
-            console.log(n.val());
+            console.log(JSON.stringify(n.val()));
           })
         })
     }
