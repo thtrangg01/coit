@@ -26,7 +26,7 @@
             class="mr-4 float-left"
             style="width: 400px"
             v-model="text"
-            placeholder="Search"
+            placeholder="Tìm kiếm"
         ></b-form-input>
       </span>
       <button class="btn-search float-left">

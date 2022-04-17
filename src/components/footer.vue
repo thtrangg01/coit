@@ -6,23 +6,23 @@
     <div class="inline-block m-auto">
       <table class="text-left table-fixed w-11/12 m-auto">
         <tr class="text-xl">
-          <th class="pb-2">About Us</th>
-          <th class="pb-2">Contact Us</th>
-          <th class="pb-2">Our Story</th>
+          <th class="pb-2">Về chúng tôi</th>
+          <th class="pb-2">Liên hệ</th>
+          <th class="pb-2">Câu chuyện nhỏ</th>
         </tr>
 
         <tr>
-          <td>Group: 1</td>
+          <td>Nhóm: 1</td>
           <td>Hotlines: 1119xxxx</td>
-          <td>Covid-19 news</td>
+          <td>Tin tức về Covid-19</td>
         </tr>
         <tr>
-          <td>Room: 602</td>
+          <td>Phòng: 602</td>
           <td>Gmail: coit@neu.edu.vn</td>
-          <td>Humanity</td>
+          <td>Câu chuyện tình thương</td>
         </tr>
         <tr>
-          <td class="w-32 flex-wrap">Address: 1310, 207 Giải Phóng</td>
+          <td class="w-32 flex-wrap">Địa chỉ: 1310, 207 Giải Phóng</td>
         </tr>
       </table>
     </div>
