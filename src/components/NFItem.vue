@@ -76,6 +76,12 @@
             </div>
           </div>
           <hr class="inline-block mr-16" style="width: 478px" />
+          <Comment
+            v-for="cmt in comments"
+            :key="cmt.comment_id"
+            :cmtprops="cmt"
+          />
+          <hr class="inline-block mr-16" style="width: 478px" />
           <div class="ml-2 mr-2 mb-3 h-6">
             <div>
               <a v-if="this.is_login">
@@ -88,10 +94,10 @@
             <span class="text-left float-left">
               <input
                 v-if="this.is_login"
-                @input="onDivInput"
                 placeholder="Thêm bình luận..."
                 style="width: 370px"
                 class="ml-3 text-sm"
+                v-model="content"
               />
               <input
                 v-else
@@ -105,7 +111,7 @@
 
             <button
               v-if="this.is_login"
-              @click="Comment"
+              @click="PostComment"
               class="text-sm float-left ml-1"
             >
               Đăng
@@ -118,19 +124,18 @@
 </template>
 
 <script>
+import Comment from "./comment.vue";
+import { v4 as uuid_v4 } from "uuid";
 import StoreService from "../service/StoreService";
 import AuthService from "@/service/AuthService";
 import DatabaseService from "@/service/DatabaseService";
 import firebase from "firebase";
 export default {
-  nane: "NFItem",
+  name: "NFItem",
   props: ["nfprops"],
+  components: { Comment },
 
   methods: {
-    onDivInput(e) {
-      this.content = e.target.innerText;
-      console.log(this.content);
-    },
     truyCapUser() {
       console.log("Truy cap User");
     },
@@ -145,22 +150,32 @@ export default {
           console.log(error);
         });
     },
+
+    PostComment() {
+      console.log("abc");
+      if (this.content.trim() != "") {
+        let comment = {
+          comment_id: uuid_v4(),
+          user: this.user,
+          content: this.content,
+          created_at: Date.now(),
+          updated_at: Date.now(),
+        };
+        this.comments.push(comment);
+        let mss = DatabaseService.insertComment(comment);
+        this.content = "";
+      }
+    },
   },
 
   data() {
     let is_login = true;
-    let web_link = "";
-    let user_name = "";
-    let uid = "";
-    let photo_link =
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png";
+    let user = "";
 
     return {
       content: "",
-      uid,
-      user_name,
-      photo_link,
-      web_link,
+      comments: [],
+      user,
       is_login,
     };
   },
@@ -168,46 +183,15 @@ export default {
   created() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.user = user;
-        console.log(user);
-        this.user_name = this.user.displayName;
-        this.uid = this.user.uid;
-        this.photo_link = this.user.photoURL;
+        this.user = {
+          uid: user.uid,
+          photoURL: user.photoURL,
+          email: user.email,
+          displayName: user.displayName,
+        };
         this.is_login = true;
-        console.log("An--" + this.user);
-      } else {
-        this.user = null;
-        this.is_login = false;
       }
     });
-  },
-
-  Comment() {
-    if (this.content.trim() != "" || document.getElementById("img-1") != null) {
-      let comment = {
-        // title: "",
-        // desc: this.content,
-        // image: img_link,
-        // user_id: this.uid,
-        // user_name: this.user_name,
-        // user_image: this.photo_link,
-        // created_at: Date.now(),
-        // updated_at: Date.now(),
-        comment_id: uuid(),
-        user_id: this.uid,
-        user_name: this.user_name,
-        user_image: this.photo_link,
-        content: this.content,
-        created_at: Date.now(),
-        updated_at: Date.now(),
-      };
-      let mss = DatabaseService.create(comments);
-      console.log(mss);
-      this.$root.$refs.NF.afterPost(comment);
-      document.getElementById("img-content").innerHTML = "";
-      document.getElementById("text-input-span").innerHTML = "";
-      this.content = "";
-    }
   },
 };
 </script>
