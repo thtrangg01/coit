@@ -68,7 +68,7 @@ export default {
       if(this.is_login)
         console.log("Start");
         console.log("this.uid "+this.uid);
-        NoticesService.getByUserId(this.user).then((notis)=>{
+        NoticesService.getByUserId(this.uid).then((notis)=>{
           notis.forEach(n=>{
             this.notices.push(n.val());
             console.log(n.val());
