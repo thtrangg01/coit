@@ -6,7 +6,7 @@
         style="width: 480px"
       >
         <div class="inline-block">
-          <div class="h-12 mt-2" style="width: 480px; margin-left: 10px" >
+          <div class="h-12 mt-2" style="width: 480px; margin-left: 10px">
             <span
               ><img
                 :src="nfprops.user_image"
@@ -21,7 +21,10 @@
             </span>
           </div>
 
-          <div class="text-left flex-wrap ml-3" style="width: 450px; white-space: pre-line">
+          <div
+            class="text-left ml-3 break-words"
+            style="width: 450px; white-space: pre-line"
+          >
             {{ nfprops.desc }}
           </div>
 
@@ -72,7 +75,7 @@
               </svg>
             </div>
           </div>
-          <hr class="inline-block mr-16" style="width: 480px" />
+          <hr class="inline-block mr-16" style="width: 478px" />
           <div class="ml-2 mr-2 mb-3 h-6">
             <div>
               <img
