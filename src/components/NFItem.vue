@@ -21,7 +21,7 @@
             </span>
           </div>
 
-          <div class="text-left flex-wrap ml-3" style="width: 450px">
+          <div class="text-left flex-wrap ml-3" style="width: 450px; white-space: pre-line">
             {{ nfprops.desc }}
           </div>
 
