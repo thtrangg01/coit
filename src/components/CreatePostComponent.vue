@@ -142,13 +142,6 @@ export default {
     let uid = "";
     let photo_link =
       "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png";
-    let user = AuthService.getCurrentUser();
-    console.log(user);
-    DatabaseService.getNewest()
-      .then(function (result) {
-        console.log(result);
-      })
-      .catch(function (error) {});
 
     return {
       content: "",
