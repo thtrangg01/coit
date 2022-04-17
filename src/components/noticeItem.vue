@@ -1,5 +1,5 @@
 <template>
-  <div class="notice-item" :id="noticeProps.id">
+  <div class="notice-item" :id="noticeProps.id" role="button" @click="changeReaded">
     <div class="notice-item-img">
       <img
           class="user-icon"
@@ -7,8 +7,9 @@
           alt="user-icon"
       />
     </div>
-    <div class="notice-item-content">
+    <div :class="noticeProps.isReaded?'notice-item-content-readed':'notice-item-content'">
       {{this.noticeContent}}
+      <p style="color: grey">{{timeSince}}</p>
     </div>
     <div class="notice-item-hide" role="button" @click="hideNotice">HIDE</div>
   </div>
@@ -21,12 +22,42 @@ export default {
   methods:{
     hideNotice(){
       this.$emit("item-hide");
+    },
+    changeReaded(){
+      this.$emit("change-readed");
     }
   },
   computed:{
     noticeContent(){
-      if(this.noticeProps.content.length>140) return this.noticeProps.content.substring(0,140)+"...";
+      if(this.noticeProps.content.length>100) return this.noticeProps.content.substring(0,100)+"...";
       else return this.noticeProps.content;
+    },
+    timeSince() {
+      let date = this.noticeProps.create_date;
+      var seconds = Math.floor((new Date() - date) / 1000);
+
+      var interval = seconds / 31536000;
+
+      if (interval > 1) {
+        return Math.floor(interval) + " năm trước";
+      }
+      interval = seconds / 2592000;
+      if (interval > 1) {
+        return Math.floor(interval) + " tháng trước";
+      }
+      interval = seconds / 86400;
+      if (interval > 1) {
+        return Math.floor(interval) + " ngày trước";
+      }
+      interval = seconds / 3600;
+      if (interval > 1) {
+        return Math.floor(interval) + " giờ trước";
+      }
+      interval = seconds / 60;
+      if (interval > 1) {
+        return Math.floor(interval) + " phút trước";
+      }
+      return Math.floor(seconds) + " giây trước";
     }
   }
 };
@@ -74,6 +105,15 @@ export default {
   max-height: 100px;
   text-align: left;
   overflow: hidden;
+}
+.notice-item-content-readed{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 300px;
+  max-height: 100px;
+  text-align: left;
+  overflow: hidden;
+  color: gray;
 }
 .notice-item-hide {
   display: none;
