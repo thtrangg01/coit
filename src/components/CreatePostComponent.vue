@@ -3,17 +3,17 @@
     <div class="flex-container-row">
       <a :href="this.web_link" v-if="this.is_login">
         <img
-          class="user-icon border-2 border-solid border-black"
-          :src="this.photo_link"
-          alt="user-icon"
-          @click="truyCapUser"
+            class="user-icon border-2 border-solid border-black"
+            :src="this.photo_link"
+            alt="user-icon"
+            @click="truyCapUser"
         />
       </a>
       <a @click="userLogin" role="button" v-else>
         <img
-          class="user-icon border-2 border-solid border-black"
-          :src="this.photo_link"
-          alt="user-icon"
+            class="user-icon border-2 border-solid border-black"
+            :src="this.photo_link"
+            alt="user-icon"
         />
       </a>
 
@@ -21,36 +21,36 @@
         <div class="input-cam">
           <div class="input-top">
             <span
-              id="text-input-span"
-              class="text-input-span"
-              role="textbox"
-              style="width: 350px"
-              contenteditable="true"
-              v-if="this.is_login"
-              @input="onDivInput"
+                id="text-input-span"
+                class="text-input-span"
+                role="textbox"
+                style="width: 350px"
+                contenteditable="true"
+                v-if="this.is_login"
+                @input="onDivInput"
             />
             <span
-              v-else
-              class="span-notlogin"
-              role="button"
-              style="width: 350px"
-              contenteditable="false"
-              @input="onDivInput"
-              @click="userLogin"
+                v-else
+                class="span-notlogin"
+                role="button"
+                style="width: 350px"
+                contenteditable="false"
+                @input="onDivInput"
+                @click="userLogin"
             />
             <a @click="taiAnh" v-if="this.is_login">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
-                alt="HTML tutorial"
-                class="inside-input-cam cursor-pointer"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/OOjs_UI_icon_camera.svg/2048px-OOjs_UI_icon_camera.svg.png"
+                  alt="HTML tutorial"
+                  class="inside-input-cam cursor-pointer"
               />
             </a>
           </div>
           <div
-            class="img-content"
-            id="img-content"
-            style="display: flex"
-            v-if="this.is_login"
+              class="img-content"
+              id="img-content"
+              style="display: flex"
+              v-if="this.is_login"
           >
             <!--            <img-->
             <!--                src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/11/28/tiem-vaccine-tre-em-1638069697701984230006.jpeg"-->
@@ -73,55 +73,58 @@ import StoreService from "../service/StoreService";
 import AuthService from "@/service/AuthService";
 import DatabaseService from "@/service/DatabaseService";
 import firebase from "firebase";
+
 export default {
   name: "CreatePostComponent",
   methods: {
     onDivInput(e) {
       this.content = e.target.innerText;
-      console.log(this.content);
     },
     truyCapUser() {
       console.log("Truy cap User");
     },
     userLogin() {
       firebase
-        .auth()
-        .signInWithPopup(new firebase.auth.GoogleAuthProvider())
-        .then((user) => {
-          console.log(user);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+          .auth()
+          .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+          .then((user) => {
+            console.log(user);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     },
     taiAnh() {
       var input = document.createElement("input");
       input.type = "file";
       input.click();
       input.addEventListener("change", handleFiles, false);
+
       function handleFiles() {
         const fileList = this.files;
 
         StoreService.upload(fileList[0])
-          .then((result) => {
-            var image_link = result;
-            console.log(image_link);
-            var imgcontent = document.getElementById("img-content");
-            var img = document.createElement("img");
-            img.src = image_link;
-            img.id = "img-1";
-            img.style.maxWidth = "380px";
-            imgcontent.innerHTML = "";
-            imgcontent.appendChild(img);
-          })
-          .catch((error) => {});
+            .then((result) => {
+              var image_link = result;
+              console.log(image_link);
+              var imgcontent = document.getElementById("img-content");
+              var img = document.createElement("img");
+              img.src = image_link;
+              img.id = "img-1";
+              img.style.maxWidth = "380px";
+              imgcontent.innerHTML = "";
+              imgcontent.appendChild(img);
+            })
+            .catch((error) => {
+            });
       }
+
       console.log("Tai anh len");
     },
     dangBai() {
       if (
-        this.content.trim() != "" ||
-        document.getElementById("img-1") != null
+          this.content.trim() != "" ||
+          document.getElementById("img-1") != null
       ) {
         let img_link = "";
         if (document.getElementById("img-1") != null)
@@ -131,9 +134,7 @@ export default {
           title: "",
           desc: this.content,
           image: img_link,
-          user_id: this.uid,
-          user_name: this.user_name,
-          user_image: this.photo_link,
+          user: this.user,
           created_at: Date.now(),
           updated_at: Date.now(),
         };
@@ -149,15 +150,11 @@ export default {
   data() {
     let is_login = true;
     let web_link = "";
-    let user_name = "";
-    let uid = "";
     let photo_link =
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png";
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png";
 
     return {
       content: "",
-      uid,
-      user_name,
       photo_link,
       web_link,
       is_login,
@@ -166,13 +163,17 @@ export default {
   created() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.user = user;
-        console.log(user);
-        this.user_name = this.user.displayName;
-        this.uid = this.user.uid;
+        this.user = {
+          uid: user.uid,
+          photoURL: user.photoURL,
+          email: user.email,
+          displayName: user.displayName,
+        };
         this.photo_link = this.user.photoURL;
         this.is_login = true;
-        console.log("An--" + this.user);
+
+        console.log("this.user");
+        console.log(this.user);
       } else {
         this.user = null;
         this.is_login = false;
@@ -189,6 +190,7 @@ export default {
   border-radius: 50%;
   margin-right: 12px;
 }
+
 .flex-container {
   position: static;
   top: 100px;
@@ -202,12 +204,14 @@ export default {
   flex-wrap: wrap;
   width: 480px;
 }
+
 .flex-container-row {
   display: flex;
   flex-direction: row;
   align-content: space-around;
   padding: 10px;
 }
+
 button {
   border-radius: 16px;
   padding: 7px;
@@ -216,6 +220,7 @@ button {
   margin-bottom: 10px;
   margin-right: 10px;
 }
+
 button:active {
   border-radius: 16px;
   padding: 7px;
@@ -224,6 +229,7 @@ button:active {
   margin-bottom: 10px;
   margin-right: 10px;
 }
+
 .text-input-span {
   background: transparent;
   border: transparent;
@@ -234,11 +240,13 @@ button:active {
   width: 350px;
   display: inline-block;
 }
+
 .text-input-span:empty::before {
   content: "Bạn muốn chia sẻ điều gì...";
   color: grey;
   display: inline-block;
 }
+
 .span-notlogin:before {
   background: transparent;
   border: transparent;
@@ -250,6 +258,7 @@ button:active {
   content: "Hãy đăng nhập để đăng bài của bạn";
   color: black;
 }
+
 .input-cam {
   display: flex;
   flex-direction: column;
@@ -258,12 +267,14 @@ button:active {
   box-shadow: 0px 4px lightgrey;
   border-radius: 10px;
 }
+
 .input-top {
   display: flex;
   flex-direction: row;
   align-content: space-around;
   width: auto;
 }
+
 .inside-input-cam {
   height: 20px;
   width: 20px;
