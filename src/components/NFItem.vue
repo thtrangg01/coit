@@ -96,14 +96,6 @@
           />
           <hr class="inline-block mr-16" style="width: 478px" />
           <div class="ml-2 mr-2 mb-3 h-6">
-            <div>
-              <a v-if="this.is_login">
-                <img
-                  :src="nfprops.user.photoURL"
-                  alt=""
-                  class="w-7 h-7 rounded-3xl border-2 border-solid border-black float-left"
-              /></a>
-            </div>
             <span class="text-left float-left">
               <input
                 v-if="this.is_login"

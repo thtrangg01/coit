@@ -7,11 +7,11 @@
         class="w-7 h-7 rounded-3xl border-2 border-solid border-black float-left"
     /></a>
 
-    <span class="text-base ml-2 mt-2 float-left font-semibold">
+    <span class="text-base ml-4 mt-2 float-left font-semibold">
       {{ cmtprops.user.displayName }}
     </span>
 
-    <p class="ml-2 mb-3 break-words float-left text-left" style="width: 450px">
+    <p class="ml-4 mb-3 break-words float-left text-left" style="width: 450px">
       {{ cmtprops.content }}
     </p>
   </span>
