@@ -107,7 +107,7 @@
               <input
                 v-else
                 @input="onDivInput"
-                placeholder="Please login to add a comment"
+                placeholder="Bạn cần đăng nhập để bình luận"
                 style="width: 370px"
                 class="ml-3 text-sm"
                 @click="userLogin"
@@ -143,7 +143,6 @@ export default {
   methods: {
     toggleLike() {
       this.like = !this.like;
-      DatabaseService.changeLike(this.nfprops.id,this.user.uid);
     },
     truyCapUser() {
       console.log("Truy cap User");
@@ -171,14 +170,15 @@ export default {
           updated_at: Date.now(),
         };
         this.comments.push(comment);
-        let mss = DatabaseService.insertComment(this.nfprops.id,comment);
-        this.content = "";
+        let mss = DatabaseService.insertComment(comment);
+        this.content = " ";
       }
     },
   },
 
   data() {
-    let is_login = true;
+    let is_login = false;
+    let like = false;
     let user = "";
 
     return {
@@ -186,7 +186,7 @@ export default {
       comments: [],
       user,
       is_login,
-      like: false,
+      like,
     };
   },
 
@@ -201,15 +201,7 @@ export default {
         };
         this.is_login = true;
       }
-      else this.is_login=false;
     });
-
-    if(this.nfprops.likes.includes(this.user.uid)){
-      this.like=true;
-    }
-    else this.like=false;
-
-    this.comments.concat(this.nfprops.comments);
   },
 };
 </script>
