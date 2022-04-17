@@ -3,7 +3,7 @@
     <div class="notice-item-img">
       <img
           class="user-icon"
-          :src="noticeProps.img"
+          :src="this.photo_link"
           alt="user-icon"
       />
     </div>
@@ -30,6 +30,11 @@ export default {
   computed:{
     noticeContent(){
       let content = "";
+      if (this.noticeProps.type === "comment"){
+        let comment = this.noticeProps.feed.comments[0];
+        content = comment.user.displayName + " đã comment vào bài của bạn: "+comment.content;
+        this.photo_link = comment.user.photoURL;
+      }
       if(content.length>100) return content.substring(0,100)+"...";
       else return content;
     },
@@ -60,6 +65,11 @@ export default {
       }
       return Math.floor(seconds) + " giây trước";
     }
+  },
+  data(){
+    return{
+      photo_link:"",
+    };
   }
 };
 </script>
