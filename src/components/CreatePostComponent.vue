@@ -11,12 +11,11 @@
       </a>
       <a @click="userLogin" role="button" v-else>
         <img
-            class="user-icon border-2 border-solid border-black"
-            :src="this.photo_link"
-            alt="user-icon"
+          class="user-icon border-2 border-solid border-black"
+          :src="this.photo_link"
+          alt="user-icon"
         />
       </a>
-
 
       <form>
         <div class="input-cam">
@@ -31,13 +30,13 @@
               @input="onDivInput"
             />
             <span
-                  v-else
-                  class="span-notlogin"
-                  role="button"
-                  style="width: 350px"
-                  contenteditable="false"
-                  @input="onDivInput"
-                  @click="userLogin"
+              v-else
+              class="span-notlogin"
+              role="button"
+              style="width: 350px"
+              contenteditable="false"
+              @input="onDivInput"
+              @click="userLogin"
             />
             <a @click="taiAnh" v-if="this.is_login">
               <img
@@ -47,7 +46,12 @@
               />
             </a>
           </div>
-          <div class="img-content" id="img-content" style="display: flex" v-if="this.is_login">
+          <div
+            class="img-content"
+            id="img-content"
+            style="display: flex"
+            v-if="this.is_login"
+          >
             <!--            <img-->
             <!--                src="https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/11/28/tiem-vaccine-tre-em-1638069697701984230006.jpeg"-->
             <!--                alt="img-content"-->
@@ -81,14 +85,14 @@ export default {
     },
     userLogin() {
       firebase
-          .auth()
-          .signInWithPopup(new firebase.auth.GoogleAuthProvider())
-          .then((user) => {
-            console.log(user);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        .auth()
+        .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        .then((user) => {
+          console.log(user);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
     taiAnh() {
       var input = document.createElement("input");
@@ -115,7 +119,10 @@ export default {
       console.log("Tai anh len");
     },
     dangBai() {
-      if(this.content.trim()!=""||document.getElementById("img-1") != null) {
+      if (
+        this.content.trim() != "" ||
+        document.getElementById("img-1") != null
+      ) {
         let img_link = "";
         if (document.getElementById("img-1") != null)
           img_link = document.getElementById("img-1").src;
@@ -135,7 +142,7 @@ export default {
         this.$root.$refs.NF.afterPost(feed);
         document.getElementById("img-content").innerHTML = "";
         document.getElementById("text-input-span").innerHTML = "";
-        this.content="";
+        this.content = "";
       }
     },
   },
@@ -164,11 +171,11 @@ export default {
         this.user_name = this.user.displayName;
         this.uid = this.user.uid;
         this.photo_link = this.user.photoURL;
-        this.is_login=true;
-        console.log("An--"+this.user);
+        this.is_login = true;
+        console.log("An--" + this.user);
       } else {
         this.user = null;
-        this.is_login=false;
+        this.is_login = false;
       }
     });
   },
@@ -232,7 +239,7 @@ button:active {
   color: grey;
   display: inline-block;
 }
-.span-notlogin:before{
+.span-notlogin:before {
   background: transparent;
   border: transparent;
   margin: 5px;

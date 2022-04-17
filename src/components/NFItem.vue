@@ -78,21 +78,38 @@
           <hr class="inline-block mr-16" style="width: 478px" />
           <div class="ml-2 mr-2 mb-3 h-6">
             <div>
-              <img
-                :src="nfprops.user_image"
-                alt=""
-                class="w-7 h-7 rounded-3xl border-2 border-solid border-black float-left"
-              />
+              <a v-if="this.is_login">
+                <img
+                  :src="nfprops.user_image"
+                  alt=""
+                  class="w-7 h-7 rounded-3xl border-2 border-solid border-black float-left"
+              /></a>
             </div>
             <span class="text-left float-left">
               <input
+                v-if="this.is_login"
+                @input="onDivInput"
                 placeholder="Thêm bình luận..."
                 style="width: 370px"
                 class="ml-3 text-sm"
               />
+              <input
+                v-else
+                @input="onDivInput"
+                placeholder="Please login to add a comment"
+                style="width: 370px"
+                class="ml-3 text-sm"
+                @click="userLogin"
+              />
             </span>
 
-            <button class="text-sm float-left ml-1">Đăng</button>
+            <button
+              v-if="this.is_login"
+              @click="Comment"
+              class="text-sm float-left ml-1"
+            >
+              Đăng
+            </button>
           </div>
         </div>
       </div>
@@ -101,8 +118,96 @@
 </template>
 
 <script>
+import StoreService from "../service/StoreService";
+import AuthService from "@/service/AuthService";
+import DatabaseService from "@/service/DatabaseService";
+import firebase from "firebase";
 export default {
   nane: "NFItem",
   props: ["nfprops"],
+
+  methods: {
+    onDivInput(e) {
+      this.content = e.target.innerText;
+      console.log(this.content);
+    },
+    truyCapUser() {
+      console.log("Truy cap User");
+    },
+    userLogin() {
+      firebase
+        .auth()
+        .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        .then((user) => {
+          console.log(user);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+
+  data() {
+    let is_login = true;
+    let web_link = "";
+    let user_name = "";
+    let uid = "";
+    let photo_link =
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2048px-User_icon_2.svg.png";
+
+    return {
+      content: "",
+      uid,
+      user_name,
+      photo_link,
+      web_link,
+      is_login,
+    };
+  },
+
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.user = user;
+        console.log(user);
+        this.user_name = this.user.displayName;
+        this.uid = this.user.uid;
+        this.photo_link = this.user.photoURL;
+        this.is_login = true;
+        console.log("An--" + this.user);
+      } else {
+        this.user = null;
+        this.is_login = false;
+      }
+    });
+  },
+
+  Comment() {
+    if (this.content.trim() != "" || document.getElementById("img-1") != null) {
+      let comment = {
+        // title: "",
+        // desc: this.content,
+        // image: img_link,
+        // user_id: this.uid,
+        // user_name: this.user_name,
+        // user_image: this.photo_link,
+        // created_at: Date.now(),
+        // updated_at: Date.now(),
+        comment_id: uuid(),
+        user_id: this.uid,
+        user_name: this.user_name,
+        user_image: this.photo_link,
+        content: this.content,
+        created_at: Date.now(),
+        updated_at: Date.now(),
+      };
+      let mss = DatabaseService.create(comments);
+      console.log(mss);
+      this.$root.$refs.NF.afterPost(comment);
+      document.getElementById("img-content").innerHTML = "";
+      document.getElementById("text-input-span").innerHTML = "";
+      this.content = "";
+    }
+  },
 };
 </script>
