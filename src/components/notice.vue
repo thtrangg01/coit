@@ -23,6 +23,8 @@ export default {
   },
   methods:{
     hideNoticeItem(noticeId){
+      let noti = this.notices.findIndex(n => n.id === noticeId);
+      this.notices.splice(noti,1);
       console.log("hide "+noticeId);
     }
   },
