@@ -2,13 +2,13 @@
   <div class="ttyt">
     <div class="ttyt_title">
       <i class="fas fa-exclamation-triangle"></i>
-      <span>Thông tin y tế</span>
+      <h3 class="text-left">Thông tin y tế</h3>
     </div>
     <div class="ttyt_content">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item">
           <a
-            class="nav-link active"
+            class="nav-link active text-"
             id="pills-tc-tab"
             data-toggle="pill"
             href="#pills-tc"
@@ -50,7 +50,7 @@
           role="tabpanel"
           aria-labelledby="pills-tc-tab"
         >
-          <h1>Triệu chứng</h1>
+          <h4>Triệu chứng</h4>
           <p>
             COVID-19 tác động đến mỗi người theo những cách khác nhau. Hầu hết
             những người <br />nhiễm vi-rút sẽ có triệu chứng bệnh từ nhẹ đến
