@@ -8,9 +8,11 @@ const db = firebase.database().ref("/notices");
   notices = {
     id : uuid_v4,
     feed: feed,
-    user_id: user_id,
+    user: user,
     create_date: now(),
-    isReaded: boolean
+    isReaded: boolean,
+    content: '',
+    type: '' (comment, react)
   }
 */
 
