@@ -1,12 +1,10 @@
 <template>
   <div class="ml-24">
-    <router-link to="/">
-      <p class="cursor-pointer text-black no-underline text-lg">
-        Trang chủ
-      </p></router-link
+    <router-link to="/" class="text-black">
+      <p class="cursor-pointer no-underline text-lg">Trang chủ</p></router-link
     >
-    <router-link to="/feeds"
-      ><p class="cursor-pointer mb-2 text-black no-underline text-lg">
+    <router-link to="/feeds" class="text-black"
+      ><p class="cursor-pointer mb-2 no-underline text-lg">
         Chuyện của tôi
       </p></router-link
     >
