@@ -2,7 +2,7 @@ import firebase from "@/firebase";
 import { v4 as uuid_v4 } from "uuid";
 
 // 'notices' the same as collection in mongodb
-const db = firebase.database().ref("notices");
+const db = firebase.database().ref("/notices");
 
 /*
   notices = {
@@ -14,12 +14,12 @@ const db = firebase.database().ref("notices");
   }
 */
 
-class NoticesService{
+class NoticesService {
   /**
-   * @param {*} user_id 
+   * @param {*} user_id
    * @returns {Promise}
    */
-  getByUserId(user_id){
+  getByUserId(user_id) {
     return db.orderByChild("user_id").equalTo(user_id).get();
   }
 
@@ -28,32 +28,43 @@ class NoticesService{
     @return {Promise}
     create new notices by list Liked user
   */
-  addNotices(feed){
+  addNotices(feed) {
     let notices = [];
-    
-    for (id in feed.likes){
+
+    // notice for owner
+    let notice = {
+      id: uuid_v4(),
+      feed: feed,
+      user_id: feed.user_id,
+      create_date: Date.now(),
+      isReaded: false,
+    };
+    db.push(notice);
+
+    // notice for liked prople
+    for (id in feed.likes) {
       let notice = {
-        id : uuid_v4(),
+        id: uuid_v4(),
         feed: feed,
         user_id: user_id,
         create_date: Date.now(),
-        isReaded: false
+        isReaded: false,
       };
 
       notices.push(notice);
-    };
-  
-    
-    return db.push(notices);
+      db.push(notice);
+    }
+
+    // return db.push(notices);
   }
 
   /**
    * change isReaded to true
-   * @param {*} notice_id 
+   * @param {*} notice_id
    * @returns {Promise}
    */
-  changeIsReaded(notice_id){
-    return db.child(notice_id).update({isReaded: true});
+  changeIsReaded(notice_id) {
+    return db.child(notice_id).update({ isReaded: true });
   }
 }
 
