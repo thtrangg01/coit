@@ -84,7 +84,7 @@ class DatabaseService {
  * @returns {Promise}
  */
   insertComment(id, comment) {
-    db.child(id).get().then(snapshot => {
+    db.orderByChild("id").equalTo(id).get().then(snapshot => {
       const feed = snapshot.val();
       feed.comments.push(comment);
       NoticesService.addNotices(feed);
@@ -93,7 +93,21 @@ class DatabaseService {
     });
 
     comment.updated_at = Date.now();
-    return db.child(id).child("comments").push(comment);
+    return db.orderByChild("id").equalTo(id).once('value')
+        .then(function (snapshot) {
+          var value = snapshot.val();
+          if (value) {
+            // value is an object containing one or more of the users that matched your email query
+            // choose a user and do something with it
+            if(value.child("comments")==null){
+              let comments = [];
+              comments.push(comment);
+              value.push(comments);
+            }
+            else value.child("comments").push(comment);
+          } else {
+          }
+        });
   }
 
   /**
@@ -117,7 +131,7 @@ class DatabaseService {
    * @returns {Promise}
    */
    changeLike(id, user_id) {
-    db.child(id).child("likes").child(user_id).once("value").then(snapshot => {
+    db.orderByChild("id").equalTo(id).child("likes").child(user_id).once("value").then(snapshot => {
       liked = snapshot.val();
       return  liked? db.child(id).child("likes").child(user_id).remove() : db.child(id).child("likes").push(user_id);
     }).catch(error => {

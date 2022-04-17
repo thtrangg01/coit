@@ -143,6 +143,7 @@ export default {
   methods: {
     toggleLike() {
       this.like = !this.like;
+      DatabaseService.changeLike(this.nfprops.id,this.user.uid);
     },
     truyCapUser() {
       console.log("Truy cap User");
@@ -170,7 +171,7 @@ export default {
           updated_at: Date.now(),
         };
         this.comments.push(comment);
-        let mss = DatabaseService.insertComment(comment);
+        let mss = DatabaseService.insertComment(this.nfprops.id,comment);
         this.content = "";
       }
     },
@@ -200,7 +201,15 @@ export default {
         };
         this.is_login = true;
       }
+      else this.is_login=false;
     });
+
+    if(this.nfprops.likes.includes(this.user.uid)){
+      this.like=true;
+    }
+    else this.like=false;
+
+    this.comments.concat(this.nfprops.comments);
   },
 };
 </script>
