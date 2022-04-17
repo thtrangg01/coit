@@ -69,5 +69,11 @@ export default {
 }
 .notice-item-hide {
   display: none;
+  border-radius: 50px;
+  margin: auto auto;
+  padding: 10px;
+}
+.notice-item-hide:active {
+  background: #c6c6c6;
 }
 </style>
