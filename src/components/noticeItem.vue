@@ -29,8 +29,9 @@ export default {
   },
   computed:{
     noticeContent(){
-      if(this.noticeProps.content.length>100) return this.noticeProps.content.substring(0,100)+"...";
-      else return this.noticeProps.content;
+      let content = "";
+      if(content.length>100) return content.substring(0,100)+"...";
+      else return content;
     },
     timeSince() {
       let date = this.noticeProps.create_date;
