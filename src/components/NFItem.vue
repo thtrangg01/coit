@@ -117,7 +117,7 @@
             <button
               v-if="this.is_login"
               @click="PostComment"
-              class="text-sm float-left ml-1"
+              class="text-sm float-left ml-3"
             >
               Đăng
             </button>
