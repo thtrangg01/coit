@@ -1,7 +1,11 @@
 <template>
   <div class="notice-container">
     <div class="notice-label">
-      <div>Thông báo</div>
+      Thông báo
+    </div>
+    <div class="notice-buttons">
+      <button class="button-mid">Tất cả</button>
+      <button class="button-mid">Chưa đọc</button>
     </div>
     <div class="notice-tiems-container">
       <noticeItem
@@ -99,17 +103,19 @@ export default {
 
 <style scoped>
 .notice-label {
+  position: static;
   align-content: space-around;
   border-bottom: 1px ridge grey;
   background-color: white;
+  padding: 10px;
   width: 450px;
   margin: 0;
+  border-color: grey;
+  font-size: 20px;
 }
 
-.notice-label > div {
-  border-color: grey;
-  margin: 10px;
-  font-size: 20px;
+.notice-buttons {
+  position: static;
 }
 
 .notice-container {
@@ -120,21 +126,35 @@ export default {
   border: 1px ridge;
   border-color: grey;
   border-radius: 10px;
-  flex-direction: column;
   flex-wrap: wrap;
+  flex-direction: row;
   align-content: space-around;
   background-color: white;
   width: 450px;
-  max-height: 580px;
+  max-height: 590px;
   overflow: hidden;
   z-index: 50;
 }
 
+.button-mid{
+  background: lightgray;
+  border-radius: 40px;
+  margin: 5px;
+  padding: 5px 10px;
+}
+.button-mid{
+  background: lightgray;
+  border-radius: 40px;
+  margin: 5px;
+  padding: 5px 10px;
+}
+
 .notice-tiems-container {
+  position: static;
   align-content: space-around;
   flex-wrap: wrap;
-  width: 450px;
-  max-height: 525px;
+  width: 460px;
+  max-height: 480px;
   overflow-y: auto;
   overflow-x: hidden;
   flex-wrap: wrap;
