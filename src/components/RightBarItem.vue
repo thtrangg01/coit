@@ -1,4 +1,5 @@
 <template>
+<a :href="RBprops.link_new">
   <div
     class="border-2 border-solid border-black rounded-xl"
     style="width: 400px; height: 140px"
@@ -15,6 +16,7 @@
       </div>
     </div>
   </div>
+  </a>
 </template>
 <script>
 export default {
