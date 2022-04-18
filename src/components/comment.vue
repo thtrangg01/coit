@@ -2,6 +2,7 @@
   <div>
     <span style="margin: auto auto"
     ><img
+        style="margin-left: 10px"
         :src="cmtprops.user.photoURL"
         alt=""
         class="mt-1 w-10 h-10 rounded-3xl border-2 border-solid border-black float-left"
