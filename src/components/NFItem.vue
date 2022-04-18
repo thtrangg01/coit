@@ -90,7 +90,7 @@
           </div>
           <hr class="inline-block mr-16" style="width: 478px" />
           <Comment
-              v-if="haveComment"
+            v-if="haveComment"
             v-for="cmt in comments"
             :key="cmt.user.uid"
             :cmtprops="cmt"
