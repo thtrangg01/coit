@@ -61,6 +61,7 @@ export default {
     changeReaded(noticeId){
       let noti = this.notices.findIndex(n => n.id === noticeId);
       this.notices[noti].isReaded=true;
+      this.$root.$refs.NF.notiDetail(this.notices[noti].feed);
       NoticesService.changeIsReaded(noticeId);
     },
     loadNoti(){

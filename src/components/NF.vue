@@ -22,6 +22,10 @@ export default {
     afterPost(feed) {
       this.nfs.unshift(feed);
     },
+    notiDetail(feed) {
+      this.nfs = [];
+      this.nfs.push(feed);
+    },
     loadFeeds(page) {
       console.log("load more data");
 
