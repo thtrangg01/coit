@@ -8,6 +8,8 @@
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item">
           <a
+              @click="trieuchung"
+              v-if="this.tab=='trieuchung'"
             class="nav-link active text-"
             id="pills-tc-tab"
             data-toggle="pill"
@@ -17,10 +19,23 @@
             aria-selected="true"
             >Triệu chứng</a
           >
+          <a
+              @click="trieuchung"
+              v-else
+              class="nav-link"
+              data-toggle="pill"
+              href="#pills-tc"
+              role="tab"
+              aria-controls="pills-tc"
+              aria-selected="true"
+          >Triệu chứng</a
+          >
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
+              @click="phongngua"
+              v-if="this.tab=='phongngua'"
+            class="nav-link active text-"
             id="pills-bf-tab"
             data-toggle="pill"
             href="#pills-bf"
@@ -29,10 +44,23 @@
             aria-selected="false"
             >Biện pháp phòng ngừa</a
           >
+          <a
+              @click="phongngua"
+              v-else
+              class="nav-link"
+              data-toggle="pill"
+              href="#pills-bf"
+              role="tab"
+              aria-controls="pills-bf"
+              aria-selected="false"
+          >Biện pháp phòng ngừa</a
+          >
         </li>
         <li class="nav-item">
           <a
-            class="nav-link"
+              @click="dieutri"
+              v-if="this.tab=='dieutri'"
+            class="nav-link active text-"
             id="pills-dt-tab"
             data-toggle="pill"
             href="#pills-dt"
@@ -40,6 +68,17 @@
             aria-controls="pills-dt"
             aria-selected="false"
             >Điều trị</a
+          >
+          <a
+              @click="dieutri"
+              v-else
+              class="nav-link"
+              data-toggle="pill"
+              href="#pills-dt"
+              role="tab"
+              aria-controls="pills-dt"
+              aria-selected="false"
+          >Điều trị</a
           >
         </li>
       </ul>
@@ -49,6 +88,7 @@
           id="pills-tc"
           role="tabpanel"
           aria-labelledby="pills-tc-tab"
+          v-if="this.tab=='trieuchung'"
         >
           <h4>Triệu chứng</h4>
           <p>
@@ -93,10 +133,11 @@
           </p>
         </div>
         <div
-          class="tab-pane fade"
+          class="tab-pane fade show active"
           id="pills-bf"
           role="tabpanel"
           aria-labelledby="pills-bf-tab"
+          v-if="this.tab=='phongngua'"
         >
           <div class="bp_title">
             <img
@@ -156,10 +197,11 @@
           </div>
         </div>
         <div
-          class="tab-pane fade"
+          class="tab-pane fade show active"
           id="pills-dt"
           role="tabpanel"
           aria-labelledby="pills-dt-tab"
+          v-if="this.tab=='dieutri'"
         >
           <h1>Điều trị</h1>
           <p>
@@ -200,7 +242,27 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    trieuchung(){
+      this.tab="trieuchung";
+    },
+    phongngua(){
+      this.tab="phongngua";
+    },
+    dieutri(){
+      this.tab="dieutri";
+    }
+  },
+  data(){
+    return {
+      tab:"",
+    };
+  },
+  created() {
+    this.tab="trieuchung";
+  }
+};
 </script>
 
 <style>
