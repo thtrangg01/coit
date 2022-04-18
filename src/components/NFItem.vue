@@ -103,7 +103,7 @@
                   style=""
                   :src="this.user.photoURL"
                   alt=""
-                  class="mt-1 w-10 h-10 rounded-3xl border-2 border-solid border-black float-md-left"
+                  class=" w-8 h-8 rounded-3xl border-2 border-solid border-black float-md-left"
               /></span>
               <input
                 v-if="this.is_login"
