@@ -90,17 +90,25 @@
           </div>
           <hr class="inline-block mr-16" style="width: 478px" />
           <Comment
+              v-if="haveComment"
             v-for="cmt in comments"
             :key="cmt.user.uid"
             :cmtprops="cmt"
           />
-          <hr class="inline-block mr-16" style="width: 478px" />
+          <hr class="inline-block mr-16" v-if="haveComment" style="width: 478px" />
           <div class="ml-2 mr-2 mb-3 h-6">
             <span class="text-left float-left">
+              <span
+              ><img
+                  style=""
+                  :src="this.user.photoURL"
+                  alt=""
+                  class="mt-1 w-10 h-10 rounded-3xl border-2 border-solid border-black float-md-left"
+              /></span>
               <input
                 v-if="this.is_login"
                 placeholder="Thêm bình luận..."
-                style="width: 370px"
+                style="width: 340px"
                 class="ml-3 text-sm"
                 v-model="content"
               />
@@ -139,6 +147,12 @@ export default {
   name: "NFItem",
   props: ["nfprops"],
   components: { Comment },
+  computed:{
+    haveComment(){
+      if(this.comments.length>0) return true;
+      else return false;
+    }
+  },
 
   methods: {
     toggleLike() {
