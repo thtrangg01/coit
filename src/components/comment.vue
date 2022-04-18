@@ -1,11 +1,11 @@
 <template>
   <div>
     <span style="margin: auto auto"
-    ><img
+      ><img
         style="margin-left: 10px"
         :src="cmtprops.user.photoURL"
         alt=""
-        class="mt-1 w-10 h-10 rounded-3xl border-2 border-solid border-black float-left"
+        class="mt-2 w-8 h-8 rounded-3xl border-2 border-solid border-black float-left"
     /></span>
 
     <span class="text-base ml-3 float-left font-semibold">
