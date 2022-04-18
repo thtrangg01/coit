@@ -29,7 +29,6 @@ export default {
           title: "Bộ Y tế",
           link_new: "https://covid19.gov.vn/",
           desc: "Bộ Y tế: Bắt buộc 100% cơ sở tiêm vaccine phòng COVID-19 cho trẻ từ 5 – dưới 12 tuổi phải ký số",
-          
         },
         {
           _id: "RB-1",
@@ -66,7 +65,8 @@ export default {
           link_new:
             "https://covid19.gov.vn/kon-tum-tu-van-dieu-tri-cho-benh-nhan-hau-covid-19-171220406094309294.htm?fbclid=IwAR3piIVsJ8FKsi4UQzO7bS0Xxqm-g2dNNfu3yfRatoEJsl3dhOGjgaIX8sE",
           desc: "Kon Tum: Tư vấn, điều trị cho bệnh nhân hậu COVID-19",
-          link_new: "https://covid19.gov.vn/kon-tum-tu-van-dieu-tri-cho-benh-nhan-hau-covid-19-171220406094309294.htm"
+          link_new:
+            "https://covid19.gov.vn/kon-tum-tu-van-dieu-tri-cho-benh-nhan-hau-covid-19-171220406094309294.htm",
         },
         {
           _id: "RB-6",
@@ -76,7 +76,8 @@ export default {
           link_new:
             "https://covid19.gov.vn/gan-8500-tre-11-tuoi-o-ha-noi-da-tiem-vaccine-covid-19-chua-ghi-nhan-truong-hop-phan-ung-bat-thuong-171220417194836713.htm",
           desc: "Gần 8.500 trẻ 11 tuổi ở Hà Nội đã tiêm vaccine COVID-19, chưa ghi nhận trường hợp phản ứng bất thường",
-          link_new: "https://covid19.gov.vn/gan-8500-tre-11-tuoi-o-ha-noi-da-tiem-vaccine-covid-19-chua-ghi-nhan-truong-hop-phan-ung-bat-thuong-171220417194836713.htm"
+          link_new:
+            "https://covid19.gov.vn/gan-8500-tre-11-tuoi-o-ha-noi-da-tiem-vaccine-covid-19-chua-ghi-nhan-truong-hop-phan-ung-bat-thuong-171220417194836713.htm",
         },
         {
           _id: "RB-7",
@@ -86,17 +87,8 @@ export default {
           link_new:
             "https://covid19.gov.vn/so-ca-covid-19-con-rat-it-thanh-hoa-giai-the-cac-khu-cach-ly-dieu-tri-covid-19-171220417194733885.htm",
           desc: "Số ca COVID-19 còn rất ít, Thanh Hóa giải thể các khu cách ly, điều trị COVID-19",
-          link_new: "https://covid19.gov.vn/so-ca-covid-19-con-rat-it-thanh-hoa-giai-the-cac-khu-cach-ly-dieu-tri-covid-19-171220417194733885.htm"
-        },
-        {
-          _id: "RB-8",
-          image:
-            "https://covid19.qltns.mediacdn.vn/354844073405468672/2022/4/16/ca-moi-16-16501058853742082112331-1650112090530-16501120908622088505419.jpeg",
-          title: "Bản tin covid-19",
           link_new:
-            "https://covid19.gov.vn/ngay-16-4-so-mac-moi-covid-19-giam-con-18474-ca-tu-vong-thap-nhat-trong-nua-nam-qua-171220416192935069.htm",
-          desc: "Ngày 16/4: Số mắc mới COVID-19 giảm còn 18.474; ca tử vong thấp nhất trong nửa năm qua",
-          link_new: "https://covid19.gov.vn/ngay-16-4-so-mac-moi-covid-19-giam-con-18474-ca-tu-vong-thap-nhat-trong-nua-nam-qua-171220416192935069.htm"
+            "https://covid19.gov.vn/so-ca-covid-19-con-rat-it-thanh-hoa-giai-the-cac-khu-cach-ly-dieu-tri-covid-19-171220417194733885.htm",
         },
       ],
     };
