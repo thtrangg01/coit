@@ -31,8 +31,8 @@ const db = firebase.database().ref("/feeds");
 // function return promise
 class DatabaseService {
   /**
-   * 
-   * @param {*} feed 
+   *
+   * @param {*} feed
    * @returns {Promise}
    */
   create(feed) {
@@ -50,8 +50,8 @@ class DatabaseService {
   }
 
   /**
-   * 
-   * @param {*} id 
+   *
+   * @param {*} id
    * @returns {Promise}
    */
   get(id) {
@@ -61,7 +61,6 @@ class DatabaseService {
   update(id, feed) {
     return db.child(id).update(feed);
   }
-
 
   delete(id) {
     return db.child(id).remove();
@@ -76,44 +75,40 @@ class DatabaseService {
     return db.orderByChild("created_at").limitToLast(10).startAt(startAt).get();
   }
 
-
-/**
- * 
- * @param {*} notice_id 
- * @param {*} comment 
- * @returns {Promise}
- */
+  /**
+   *
+   * @param {*} notice_id
+   * @param {*} comment
+   * @returns {Promise}
+   */
   insertComment(id, comment) {
-    db.orderByChild("id").equalTo(id).get().then(snapshot => {
-      const feed = snapshot.val();
-      feed.comments.push(comment);
-      NoticesService.addNotices(feed);
-    }).catch(error => {
-      console.log(error);
-    });
+    db.orderByChild("id")
+      .equalTo(id)
+      .get()
+      .then((snapshot) => {
+        let feed = snapshot.val();
+        // snapshot.child('comments').push(comment);
+        console.log(snapshot.child("comments"));
+        // feed.comments.push(comment);
+        // NoticesService.addNotices(feed);
+        let key = Object.keys(snapshot.toJSON())[0];
+        console.log(key);
+        return db.child(key).child("comments").push(comment);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    comment.updated_at = Date.now();
-    return db.orderByChild("id").equalTo(id).once('value')
-        .then(function (snapshot) {
-          var value = snapshot.val();
-          if (value) {
-            // value is an object containing one or more of the users that matched your email query
-            // choose a user and do something with it
-            if(value.child("comments")==null){
-              let comments = [];
-              comments.push(comment);
-              value.push(comments);
-            }
-            else value.child("comments").push(comment);
-          } else {
-          }
-        });
+    //
+
+    // comment.updated_at = Date.now();
+    // return db.child("id").child("comments").push(comment);
   }
 
   /**
    * remove comment in feed
-   * @param {*} feed_id 
-   * @param {*} comment_id 
+   * @param {*} feed_id
+   * @param {*} comment_id
    * @returns {Promise}
    */
   removeComment(id, comment_id) {
@@ -126,17 +121,25 @@ class DatabaseService {
 
   /**
    * change like status
-   * @param {*} feed_id 
-   * @param {*} user_id 
+   * @param {*} feed_id
+   * @param {*} user_id
    * @returns {Promise}
    */
-   changeLike(id, user_id) {
-    db.orderByChild("id").equalTo(id).child("likes").child(user_id).once("value").then(snapshot => {
-      liked = snapshot.val();
-      return  liked? db.child(id).child("likes").child(user_id).remove() : db.child(id).child("likes").push(user_id);
-    }).catch(error => {
-      console.log(error);
-    });
+  changeLike(id, user_id) {
+    db.orderByChild("id")
+      .equalTo(id)
+      .child("likes")
+      .child(user_id)
+      .once("value")
+      .then((snapshot) => {
+        liked = snapshot.val();
+        return liked
+          ? db.child(id).child("likes").child(user_id).remove()
+          : db.child(id).child("likes").push(user_id);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 }
 
